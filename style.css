@@ -1,0 +1,78 @@
+@font-face { /*Fonte do título do site */
+    font-family: "Litebulb";
+    src: url("fonts/Litebulb.woff") format("woff");
+    src: url("fonts/Litebulb.woff2") format("woff2");
+}
+
+.cabecalho {
+    margin-bottom:25px;
+    margin-top:25px;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.titulosite {
+    text-align: center;
+    font-family: "Litebulb";
+    font-size: 150px;
+    animation: colorOscillate 8s ease-in-out infinite;
+}
+
+@keyframes colorOscillate { /*Animação do título do site */
+    0%, 100% {
+        color: #000000;
+    }
+    50% {
+        color: rgb(255, 234, 152);
+    }
+}
+
+.subtitulosite {
+    text-align: center;
+    font-family: "Litebulb";
+    color: #000000;
+    font-size: 62px;
+}
+
+.barrapesquisa {
+    justify-content: center;
+    height: 50px;
+    border-radius: 25px;
+    background: #ffea98;
+    box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37);
+}
+
+.botaohomepage {
+    font-family: "Litebulb";
+    font-size: 48px;
+    border: none;
+    background-color: #ffea98;
+    border-radius: 30px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.icones-botao {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    position: absolute;
+    left: 15px;
+}
+
+/* globo q fica quicando */
+.globo {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    z-index: -1;
+    transition: filter 0.3s;
+}
