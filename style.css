@@ -4,6 +4,15 @@
     src: url("fonts/Litebulb.woff2") format("woff2");
 }
 
+@keyframes cortexto { /*animação do título do site */
+    0%, 100% {
+        color: #000000;
+    }
+    50% {
+        color: #ffea98;
+    }
+}
+
 .cabecalho {
     margin-bottom:25px;
     margin-top:25px;
@@ -16,16 +25,7 @@
     text-align: center;
     font-family: "Litebulb";
     font-size: 150px;
-    animation: colorOscillate 8s ease-in-out infinite;
-}
-
-@keyframes colorOscillate { /*Animação do título do site */
-    0%, 100% {
-        color: #000000;
-    }
-    50% {
-        color: rgb(255, 234, 152);
-    }
+    animation: cortexto 8s ease-in-out infinite;
 }
 
 .subtitulosite {
@@ -43,7 +43,7 @@
     box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37);
 }
 
-.botaohomepage {
+.botaohomepage { /*os botoes q ficam la em cima no site */
     font-family: "Litebulb";
     font-size: 48px;
     border: none;
@@ -54,17 +54,19 @@
     align-items: center;
     justify-content: center;
     line-height: 1;
-    padding: 0 20px;
+    padding: 0 15px 0 45px;
     cursor: pointer;
     position: relative;
+    text-decoration: none;
 }
 
-.icones-botao {
+.icones-botao { /* os icones q ficam dentro dos botoes */
     width: 32px;
-    height: 32px;
-    object-fit: contain;
+    height: auto;
     position: absolute;
-    left: 15px;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 /* globo q fica quicando */
@@ -75,4 +77,8 @@
     pointer-events: none;
     z-index: -1;
     transition: filter 0.3s;
+}
+
+.temlink a { /* isso aqui é pra tipo um texto que tem link tlg dai ele fica sem aquele coiso azul embaixo */
+    text-decoration: none;
 }
