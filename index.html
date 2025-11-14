@@ -13,43 +13,80 @@
 
 <body>
 
-    <img src="images/globo.png" class="globo" id="globo" alt="Globo"> <!--Globo que fica quicando no site-->
+    <img src="images/globo.png" class="globo" id="globo" alt="Globo"> <!--globo que fica quicando no site-->
     <script src="globo.js"></script>
 
     <div class="container-fluid px-3 py-4"> <!--TOPO DO SITE COM BOTÕES E ETC-->
         <div class="row g-2 g-md-2 justify-content-center">
 
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="botaohomepage w-100">home</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="botaohomepage w-100">about us</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="botaohomepage w-100">donate</button>
-            </div>
-            <div class="col-6 col-md-4 col-lg-2">
-                <button class="botaohomepage w-100">sign up</button>
-            </div>
-            <div class="col-12 col-md-8 col-lg-2">
-                <button class="botaohomepage w-100">upload pfp</button>
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="#">
+                    <button class="botaohomepage w-100">
+                        <img src="icons/home.png" class="icones-botao" alt="home">
+                        <span>home</span>
+                    </button>
+                </a>
             </div>
 
+
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="#">
+                    <button class="botaohomepage w-100">
+                        <img src="icons/about us.png" class="icones-botao" alt="about">
+                        <span>about us</span>
+                    </button>
+                </a>
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="#">
+                    <button class="botaohomepage w-100">
+                        <img src="icons/donate.png" class="icones-botao" alt="donate">
+                        <span>donate</span>
+                    </button>
+                </a>
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="#">
+                    <button class="botaohomepage w-100">
+                        <img src="icons/sign up.png" class="icones-botao" alt="signup">
+                        <span>sign up</span>
+                    </button>
+                </a>
+            </div>
+
+
+            <div class="col-12 col-md-8 col-lg-2 temlink">
+                <a href="#">
+                    <button class="botaohomepage w-100">
+                        <img src="icons/upload pfp.png" class="icones-botao" alt="upload">
+                        <span>upload pfp</span>
+                    </button>
+                </a>
+            </div>
         </div>
-        
     </div>
+
 
     <header> <!--TÍTULO DO SITE-->
         <h1 class="titulosite">
-            PFPedia
+            <span>PFPedia</span>
         </h1>
+
         <p class="subtitulosite"><i>
-                Profile Picture Encyclopedia
-            </i></p>
+                <span><i>Picture Encyclopedia</i></span>
+        </p>
     </header>
 
-    <div class="barrapesquisa mx-auto w-75"> <!--BARRA DE PESQUISA-->
 
+    <div class="barrapesquisa mx-auto w-75"> <!--BARRA DE PESQUISA-->
+        <form action="pesquisa.php">
+            <input type="text" name="personagem" placeholder="Nagito Komaeda" required maxlength="60">
+            <input type="submit" value="pesquisar" method="get">
+        </form>
     </div>
 </body>
 
