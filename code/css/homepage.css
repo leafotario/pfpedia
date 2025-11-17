@@ -1,0 +1,122 @@
+/* ESSE CSS SÓ VAI TER COISAS QUE SERÃO USADAS NO INDEX.HTML (VULGO HOMEPAGE DO SITE) */
+
+@keyframes cortexto { /*animação do título do site */
+    0%, 100% {
+        color: #000000;
+    }
+    50% {
+        color: #ffea98;
+    }
+}
+
+@keyframes cortexto2 { /*animação do título do site soq invertida */
+    0%, 100% {
+        color: #ffea98;
+    }
+    50% {
+        color: #000000;
+    }
+}
+
+.titulosite {
+    text-align: center;
+    font-family: "Litebulb";
+    font-size: 150px;
+    animation: cortexto 8s ease-in-out infinite;
+}
+
+.titulo2site {
+    text-align: center;
+    font-family: "Litebulb";
+    font-size: 150px;
+    animation: cortexto2 8s ease-in-out infinite;
+}
+
+.subtitulosite {
+    text-align: center;
+    font-family: "Litebulb";
+    color: #000000;
+    font-size: 62px;
+    line-height: 0.8;
+    margin-bottom: 20px;
+}
+
+.textosite {
+    text-align: center;
+    font-family: "Litebulb";
+    color: #000000;
+    font-size: 48px;
+    line-height: 5px;
+}
+
+.barrapesquisa {
+    position: relative;
+    height: 70px;
+    border-radius: 35px;
+    background: #ffea98;
+    box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37);
+    padding: 8px;
+    margin-bottom: 40px;
+}
+
+/* form de pesquisa */
+.search-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* input da pesquisa */
+.search-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    font-family: "Litebulb";
+    font-size: 36px;
+    color: #000000;
+    padding: 0 70px 0 30px;
+    outline: none;
+}
+
+/* placeholder do input */
+.search-input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-family: "Litebulb";
+}
+
+/* botão de pesquisa com lupa */
+.search-button {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 45px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+    padding: 0;
+}
+
+/* ícone da lupa */
+.search-icon {
+    width: 32px;
+    height: auto;
+}
+
+/* globo q fica quicando */
+.globo {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    z-index: -1;
+    transition: filter 0.3s;
+}

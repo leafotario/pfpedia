@@ -1,0 +1,81 @@
+/* ESSE CSS SÓ VAI TER COISAS REFERENTES AO CABEÇALHO QUE FICA NO TOPO DE ALGUMAS PÁGINAS DO SITE (HOME, DONATE, ETC) */
+
+/* responsividade da BARRA DE PESQUISA pra tablets */
+@media (max-width: 768px) {
+    .barrapesquisa {
+        height: 60px;
+    }
+    
+    .search-input {
+        font-size: 28px;
+        padding: 0 60px 0 20px;
+    }
+    
+    .search-button {
+        width: 40px;
+        height: 40px;
+        right: 12px;
+    }
+    
+    .search-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* responsividade da BARRA DE PESQUISA pra celulares */
+@media (max-width: 480px) {
+    .barrapesquisa {
+        height: 50px;
+    }
+    
+    .search-input {
+        font-size: 22px;
+        padding: 0 50px 0 15px;
+    }
+    
+    .search-button {
+        width: 35px;
+        height: 35px;
+        right: 10px;
+    }
+    
+    .search-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.cabecalho {
+    margin-bottom:25px;
+    margin-top:25px;
+    display: flex;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.botaohomepage { /*os botoes q ficam la em cima no site */
+    font-family: "Litebulb";
+    font-size: 48px;
+    border: none;
+    background-color: #ffea98;
+    border-radius: 30px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0 15px 0 45px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+}
+
+.icones-botao { /* os icones q ficam dentro dos botoes */
+    width: 32px;
+    height: auto;
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}

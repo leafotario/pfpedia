@@ -5,16 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PFPedia | Profile Picture Archive</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="stylesheet" href="../css/geral.css">
+    <link rel="stylesheet" href="../css/barra.css">
+    <link rel="stylesheet" href="../css/homepage.css">
+    <link rel="icon" type="image/png" href="../../assets/images/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/placeholdernames.js"></script>
 </head>
 
 <body>
 
-    <img src="images/globo.png" class="globo" id="globo" alt="Globo"> <!--globo que fica quicando no site-->
-    <script src="globo.js"></script>
+    <img src="../../assets/images/globo.png" class="globo" id="globo" alt="Globo"> <!--globo que fica quicando no site-->
+    <script src="../js/globo.js"></script>
 
     <div class="container-fluid px-3 py-4"> <!--TOPO DO SITE COM BOTÕES E ETC-->
         <div class="row g-2 g-md-2 justify-content-center">
@@ -22,7 +25,7 @@
             <div class="col-6 col-md-4 col-lg-2 temlink">
                 <a href="#">
                     <button class="botaohomepage w-100">
-                        <img src="icons/home.png" class="icones-botao" alt="home">
+                        <img src="../../assets/icons/home.png" class="icones-botao" alt="home">
                         <span>home</span>
                     </button>
                 </a>
@@ -32,7 +35,7 @@
             <div class="col-6 col-md-4 col-lg-2 temlink">
                 <a href="#">
                     <button class="botaohomepage w-100">
-                        <img src="icons/about us.png" class="icones-botao" alt="about">
+                        <img src="../../assets/icons/about us.png" class="icones-botao" alt="about">
                         <span>about us</span>
                     </button>
                 </a>
@@ -42,8 +45,8 @@
             <div class="col-6 col-md-4 col-lg-2 temlink">
                 <a href="#">
                     <button class="botaohomepage w-100">
-                        <img src="icons/donate.png" class="icones-botao" alt="donate">
-                        <span>donate</span>
+                        <img src="../../assets/icons/faq.png" class="icones-botao" alt="donate">
+                        <span>faq</span>
                     </button>
                 </a>
             </div>
@@ -52,7 +55,7 @@
             <div class="col-6 col-md-4 col-lg-2 temlink">
                 <a href="#">
                     <button class="botaohomepage w-100">
-                        <img src="icons/sign up.png" class="icones-botao" alt="signup">
+                        <img src="../../assets/icons/sign up.png" class="icones-botao" alt="signup">
                         <span>sign up</span>
                     </button>
                 </a>
@@ -62,7 +65,7 @@
             <div class="col-12 col-md-8 col-lg-2 temlink">
                 <a href="#">
                     <button class="botaohomepage w-100">
-                        <img src="icons/upload pfp.png" class="icones-botao" alt="upload">
+                        <img src="../../assets/icons/upload pfp.png" class="icones-botao" alt="upload">
                         <span>upload pfp</span>
                     </button>
                 </a>
@@ -77,17 +80,32 @@
         </h1>
 
         <p class="subtitulosite"><i>
-                <span><i>Picture Encyclopedia</i></span>
-        </p>
+                <span>Picture Encyclopedia</span>
+        </p></i>
     </header>
 
 
     <div class="barrapesquisa mx-auto w-75"> <!--BARRA DE PESQUISA-->
-        <form action="pesquisa.php">
-            <input type="text" name="personagem" placeholder="Nagito Komaeda" required maxlength="60">
-            <input type="submit" value="pesquisar" method="get">
+        <form action="../php/pesquisa.php" method="GET" class="search-form">
+            <input type="text" name="personagem" class="search-input" placeholder="Search..." autocomplete="off">
+            <button type="submit" class="search-button" aria-label="Pesquisar">
+                <img class="search-icon" src="../../assets/icons/search.png">
+            </button>
         </form>
     </div>
-</body>
 
+    <header> <!-- TEXTO EXPLICANDO O QUE É E COMO FUNCIONA ESSE SITE-->
+        <p class="titulo2site" style="margin-top: 150px;">
+            <span>what is pfpedia?</span>
+        </p>
+        <p class="subtitulosite">
+            <i>pfpedia is a user-submitted profile picture archive!</i><br>just search for your
+            favorite character and you will find hundreds of profile pictures of them! <br> if there is no profile
+            picture of such character, you can easily upload them and contribute to the archive
+        </p>
+
+    </header>
+
+
+</body>
 </html>

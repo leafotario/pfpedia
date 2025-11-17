@@ -1,0 +1,11 @@
+/* ESSE CSS SÓ TEM COISAS ESSENCIAIS QUE TODAS AS PÁGINAS VÃO TER, COMO FONTES E ETC*/
+
+@font-face { /*Fonte do título do site */
+    font-family: "Litebulb";
+    src: url("../../assets/fonts/Litebulb.woff") format("woff");
+    src: url("../../assets/fonts/Litebulb.woff2") format("woff2");
+}
+
+.temlink a { /* isso aqui é pra tipo um texto que tem link tlg dai ele fica sem aquele coiso azul embaixo */
+    text-decoration: none;
+}
