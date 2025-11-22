@@ -1,4 +1,4 @@
-/* ESSE CSS SÓ VAI TER COISAS REFERENTES AO CABEÇALHO QUE FICA NO TOPO DE ALGUMAS PÁGINAS DO SITE (HOME, DONATE, ETC) */
+/* ESSE CSS SÓ VAI TER COISAS REFERENTES AO CABEÇALHO QUE FICA NO TOPO DE ALGUMAS PÁGINAS DO SITE*/
 
 /* ===== BOTÕES DO TOPO ===== */
 .botaohomepage {
@@ -45,86 +45,6 @@
     display: flex;
     align-items: center;
     margin-left: 5%;
-}
-
-/* ===== RESPONSIVIDADE - MAIOR EM TELAS MENORES ===== */
-
-/* Telas grandes */
-@media (min-width: 1200px) {
-    .botaohomepage {
-        font-size: 48px;
-        height: 52px;
-        padding: 0 20px 0 55px;
-    }
-    
-    .icones-botao {
-        width: 36px;
-        left: 12px;
-    }
-}
-
-/* Tablets */
-@media (max-width: 768px) {
-    .botaohomepage {
-        font-size: 42px;
-        height: 54px;
-        min-height: 54px;
-        border-radius: 27px;
-        padding: 0 16px 0 50px;
-    }
-    
-    .icones-botao {
-        width: 32px;
-        left: 10px;
-    }
-}
-
-/* Celulares grandes */
-@media (max-width: 576px) {
-    .botaohomepage {
-        font-size: 46px;
-        height: 58px;
-        min-height: 58px;
-        border-radius: 29px;
-        padding: 0 14px 0 52px;
-    }
-    
-    .icones-botao {
-        width: 36px;
-        left: 10px;
-    }
-}
-
-/* Celulares médios */
-@media (max-width: 480px) {
-    .botaohomepage {
-        font-size: 40px;
-        height: 55px;
-        min-height: 55px;
-        border-radius: 28px;
-        padding: 0 12px 0 48px;
-    }
-    
-    .icones-botao {
-        width: 34px;
-        left: 9px;
-    }
-}
-
-/* Celulares pequenos */
-@media (max-width: 360px) {
-    .botaohomepage {
-        font-size: 34px;
-        height: 52px;
-        min-height: 52px;
-        border-radius: 26px;
-        padding: 0 10px 0 42px;
-    }
-    
-    .icones-botao {
-        width: 30px;
-        left: 8px;
-    }
 }
 
 /* ===== DARK MODE ===== */
@@ -227,41 +147,4 @@ body.dark-mode ::selection {
 @keyframes cortexto2-dark {
     0%, 100% { color: #ffea98; }
     50% { color: #ffffff; }
-}
-
-/* Responsividade do botão dark mode */
-@media (max-width: 992px) {
-    .darkmode-toggle {
-        top: auto;
-        bottom: 20px;
-        right: 20px;
-    }
-}
-
-@media (max-width: 576px) {
-    .darkmode-toggle {
-        width: 55px;
-        height: 55px;
-        bottom: 18px;
-        right: 18px;
-    }
-    
-    .darkmode-icon {
-        width: 32px;
-        height: 32px;
-    }
-}
-
-@media (max-width: 360px) {
-    .darkmode-toggle {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        right: 15px;
-    }
-    
-    .darkmode-icon {
-        width: 28px;
-        height: 28px;
-    }
 }
