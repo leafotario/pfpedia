@@ -8,8 +8,8 @@
     <title>PFPedia | FAQ</title>
     <link rel="stylesheet" href="../css/geral.css">
     <link rel="stylesheet" href="../css/barra.css">
-    <link rel="stylesheet" href="../css/responsividade.css">
     <link rel="stylesheet" href="../css/faq.css">
+    <link rel="stylesheet" href="../css/responsividade.css">
     <link rel="icon" type="image/png" href="../../assets/images/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
@@ -28,7 +28,6 @@
 
     <img src="../../assets/images/globo.png" class="globo" id="globo" alt="Globo">
     <script src="../js/globo.js"></script>
-    <script src="../js/placeholdernames.js"></script>
     <script src="../js/darkmode.js"></script>
 
     <!-- TOPO DO SITE COM BOTÕES -->
@@ -36,7 +35,7 @@
         <div class="row g-2 justify-content-center">
 
             <div class="col-6 col-md-4 col-lg-2 temlink">
-                <a href="#">
+                <a href="index.html">
                     <button class="botaohomepage w-100">
                         <img src="../../assets/icons/home.png" class="icones-botao" alt="home">
                         <span>home</span>
@@ -82,14 +81,113 @@
         </div>
     </nav>
 
+    <!-- TÍTULO -->
+    <header class="faq-header">
+        <h1 class="titulosite">FAQ</h1>
+    </header>
 
+    <!-- CONTAINER DO FAQ -->
+    <main class="faq-container">
 
+        <!-- PERGUNTA 1 -->
+        <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+                <span class="faq-texto">What is PFPedia?</span>
+                <span class="faq-seta">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>PFPedia is an independent profile picture archive of fictional characters where you can easily find
+                    profile pictures of your favorite characters.</p>
+            </div>
+        </div>
 
+        <!-- PERGUNTA 2 -->
+        <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+                <span class="faq-texto">Where do the profile pictures come from?</span>
+                <span class="faq-seta">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>All profile pictures are submitted by users and come from publicly available materials, official
+                    media, or promotional content.</p>
+                <p>PFPedia itself doesn't create or own any of the images — we just host what the community uploads.</p>
+            </div>
+        </div>
 
-    
+        <!-- PERGUNTA 3 -->
+        <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+                <span class="faq-texto">Who owns the characters and images?</span>
+                <span class="faq-seta">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>PFPedia does not own any characters, trademarks, screenshots, or artwork shown on the site. All
+                    rights belong to their original creators, studios, and copyright holders.</p>
+                <p>We only host content for informational and non-commercial purposes.</p>
+                <p>If you're a copyright holder and want something removed, contact us and we'll take care of it.</p>
+            </div>
+        </div>
+
+        <!-- PERGUNTA 4 -->
+        <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+                <span class="faq-texto">How can I contact PFPedia?</span>
+                <span class="faq-seta">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>For copyright removals, reports, or just general help, please contact us through e-mail: <span
+                        class="faq-email">support@pfpedia.online</span></p>
+            </div>
+        </div>
+
+        <!-- PERGUNTA 5 -->
+        <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+                <span class="faq-texto">How do I report inappropriate content?</span>
+                <span class="faq-seta">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>All images on PFPedia go through a thorough analysis by our moderation team before being approved, so
+                    you'll rarely find something inappropriate here.</p>
+                <p>If you do find something wrong, contact us at <span class="faq-email">support@pfpedia.online</span>
+                    with evidence and we'll look into it.</p>
+            </div>
+        </div>
+
+        <!-- PERGUNTA 6 -->
+        <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+                <span class="faq-texto">What types of images are allowed?</span>
+                <span class="faq-seta">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>To know what you can or can't upload on PFPedia, please check our Rules page by clicking on the
+                    "Rules" button at the top of the site.</p>
+            </div>
+        </div>
+
+        <!-- PERGUNTA 7 -->
+        <div class="faq-item">
+            <button class="faq-pergunta" aria-expanded="false">
+                <span class="faq-texto">Does the site collect any data?</span>
+                <span class="faq-seta">+</span>
+            </button>
+            <div class="faq-resposta">
+                <p>PFPedia doesn't collect any personal data besides the absolute basics needed to create and manage
+                    your account.</p>
+                <p>We don't track you, sell info, or gather anything unnecessary. Apart from what's required for login
+                    and user features, nothing else is stored.</p>
+            </div>
+        </div>
+
+    </main>
+
     <footer>
         <p class="footer-texto">© 2025 PFPedia. All rights reserved.</p>
     </footer>
 
+    <script src="../js/faq.js"></script>
+
 </body>
+
 </html>
