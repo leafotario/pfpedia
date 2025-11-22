@@ -1,81 +1,267 @@
 /* ESSE CSS SÓ VAI TER COISAS REFERENTES AO CABEÇALHO QUE FICA NO TOPO DE ALGUMAS PÁGINAS DO SITE (HOME, DONATE, ETC) */
 
-/* responsividade da BARRA DE PESQUISA pra tablets */
-@media (max-width: 768px) {
-    .barrapesquisa {
-        height: 60px;
-    }
-    
-    .search-input {
-        font-size: 28px;
-        padding: 0 60px 0 20px;
-    }
-    
-    .search-button {
-        width: 40px;
-        height: 40px;
-        right: 12px;
-    }
-    
-    .search-icon {
-        width: 28px;
-        height: 28px;
-    }
+/* ===== BOTÕES DO TOPO ===== */
+.botaohomepage {
+    font-family: "Litebulb";
+    font-size: 38px;
+    border: none;
+    background-color: #ffea98;
+    border-radius: 30px;
+    height: 48px;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0 18px 0 48px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    white-space: nowrap;
 }
 
-/* responsividade da BARRA DE PESQUISA pra celulares */
-@media (max-width: 480px) {
-    .barrapesquisa {
-        height: 50px;
-    }
-    
-    .search-input {
-        font-size: 22px;
-        padding: 0 50px 0 15px;
-    }
-    
-    .search-button {
-        width: 35px;
-        height: 35px;
-        right: 10px;
-    }
-    
-    .search-icon {
-        width: 24px;
-        height: 24px;
-    }
+.botaohomepage:hover {
+    transform: translateY(-2px);
+}
+
+.botaohomepage:active {
+    transform: scale(0.96);
+    background-color: #f5e08a;
+}
+
+.icones-botao {
+    width: 28px;
+    height: auto;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .cabecalho {
-    margin-bottom:25px;
-    margin-top:25px;
+    margin-bottom: 25px;
+    margin-top: 25px;
     display: flex;
     align-items: center;
     margin-left: 5%;
 }
 
-.botaohomepage { /*os botoes q ficam la em cima no site */
-    font-family: "Litebulb";
-    font-size: 48px;
+/* ===== RESPONSIVIDADE - MAIOR EM TELAS MENORES ===== */
+
+/* Telas grandes */
+@media (min-width: 1200px) {
+    .botaohomepage {
+        font-size: 48px;
+        height: 52px;
+        padding: 0 20px 0 55px;
+    }
+    
+    .icones-botao {
+        width: 36px;
+        left: 12px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .botaohomepage {
+        font-size: 42px;
+        height: 54px;
+        min-height: 54px;
+        border-radius: 27px;
+        padding: 0 16px 0 50px;
+    }
+    
+    .icones-botao {
+        width: 32px;
+        left: 10px;
+    }
+}
+
+/* Celulares grandes */
+@media (max-width: 576px) {
+    .botaohomepage {
+        font-size: 46px;
+        height: 58px;
+        min-height: 58px;
+        border-radius: 29px;
+        padding: 0 14px 0 52px;
+    }
+    
+    .icones-botao {
+        width: 36px;
+        left: 10px;
+    }
+}
+
+/* Celulares médios */
+@media (max-width: 480px) {
+    .botaohomepage {
+        font-size: 40px;
+        height: 55px;
+        min-height: 55px;
+        border-radius: 28px;
+        padding: 0 12px 0 48px;
+    }
+    
+    .icones-botao {
+        width: 34px;
+        left: 9px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 360px) {
+    .botaohomepage {
+        font-size: 34px;
+        height: 52px;
+        min-height: 52px;
+        border-radius: 26px;
+        padding: 0 10px 0 42px;
+    }
+    
+    .icones-botao {
+        width: 30px;
+        left: 8px;
+    }
+}
+
+/* ===== DARK MODE ===== */
+
+.darkmode-toggle {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
     border: none;
     background-color: #ffea98;
-    border-radius: 30px;
-    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    line-height: 1;
-    padding: 0 15px 0 45px;
-    cursor: pointer;
-    position: relative;
-    text-decoration: none;
+    z-index: 1000;
+    transition: transform 0.2s ease, background-color 0.4s ease;
 }
 
-.icones-botao { /* os icones q ficam dentro dos botoes */
-    width: 32px;
-    height: auto;
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
+.darkmode-toggle:hover {
+    transform:translateY(-2px);
+}
+
+.darkmode-icon {
+    width: 28px;
+    height: 28px;
+    transition: filter 0.4s ease;
+}
+body.dark-mode {
+    background-color: #26251e;
+}
+
+body.dark-mode .titulosite {
+    animation: cortexto-dark 8s ease-in-out infinite;
+}
+
+body.dark-mode .titulo2site {
+    animation: cortexto2-dark 8s ease-in-out infinite;
+}
+
+body.dark-mode .subtitulosite {
+    color: #ffffff;
+}
+
+body.dark-mode .botaohomepage {
+    background-color: #423f2d;
+    color: #ffffff;
+}
+
+body.dark-mode .botaohomepage:active {
+    background-color:  #423f2d;
+}
+
+body.dark-mode .barrapesquisa {
+    background:  #423f2d;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .search-input {
+    color: #ffffff;
+}
+
+body.dark-mode .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .footer-texto {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .darkmode-toggle {
+    background-color:  #423f2d;
+}
+
+body.dark-mode .darkmode-icon {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .icones-botao,
+body.dark-mode .search-icon,
+body.dark-mode .globo {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode ::selection {
+    background-color: #ffea98;
+    color: #1a1a2e;
+}
+
+/* Animações dark mode */
+@keyframes cortexto-dark {
+    0%, 100% { color: #ffffff; }
+    50% { color: #ffea98; }
+}
+
+@keyframes cortexto2-dark {
+    0%, 100% { color: #ffea98; }
+    50% { color: #ffffff; }
+}
+
+/* Responsividade do botão dark mode */
+@media (max-width: 992px) {
+    .darkmode-toggle {
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .darkmode-toggle {
+        width: 55px;
+        height: 55px;
+        bottom: 18px;
+        right: 18px;
+    }
+    
+    .darkmode-icon {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+@media (max-width: 360px) {
+    .darkmode-toggle {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .darkmode-icon {
+        width: 28px;
+        height: 28px;
+    }
 }
