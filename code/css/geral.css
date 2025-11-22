@@ -1,11 +1,47 @@
 /* ESSE CSS SÓ TEM COISAS ESSENCIAIS QUE TODAS AS PÁGINAS VÃO TER, COMO FONTES E ETC*/
 
-@font-face { /*Fonte do título do site */
-    font-family: "Litebulb";
-    src: url("../../assets/fonts/Litebulb.woff") format("woff");
-    src: url("../../assets/fonts/Litebulb.woff2") format("woff2");
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.temlink a { /* isso aqui é pra tipo um texto que tem link tlg dai ele fica sem aquele coiso azul embaixo */
-    text-decoration: none;
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
 }
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+@font-face {
+    font-family: "Litebulb";
+    src: url("../../assets/fonts/Litebulb.woff2") format("woff2"),
+         url("../../assets/fonts/Litebulb.woff") format("woff");
+    font-display: swap;
+}
+
+.temlink a {
+    text-decoration: none;
+    display: block;
+}
+
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+    background-color: #ffea98;
+    color: #000000;
+}
+
+
+
+
