@@ -308,3 +308,151 @@
         width: 30px;
     }
 }
+
+/* ===== FAQ.CSS - PÁGINA DE FAQ ===== */
+
+/* Telas grandes */
+@media (min-width: 1200px) {
+    .faq-container {
+        max-width: 1000px;
+    }
+    
+    .faq-texto {
+        font-size: 44px;
+    }
+    
+    .faq-resposta p {
+        font-size: 38px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .faq-container {
+        padding: 0 20px;
+        gap: 15px;
+    }
+    
+    .faq-pergunta {
+        padding: 22px 25px;
+    }
+    
+    .faq-texto {
+        font-size: 36px;
+    }
+    
+    .faq-seta {
+        font-size: 45px;
+    }
+    
+    .faq-resposta p {
+        font-size: 32px;
+    }
+    
+    .faq-item.ativo .faq-resposta {
+        padding: 0 25px 22px 25px;
+    }
+}
+
+/* Celulares grandes */
+@media (max-width: 576px) {
+    .faq-header {
+        padding: 15px 15px 40px 15px;
+    }
+    
+    .faq-container {
+        padding: 0 15px;
+        gap: 14px;
+    }
+    
+    .faq-item {
+        border-radius: 18px;
+    }
+    
+    .faq-pergunta {
+        padding: 22px 20px;
+        gap: 15px;
+    }
+    
+    .faq-texto {
+        font-size: 38px;
+    }
+    
+    .faq-seta {
+        font-size: 48px;
+    }
+    
+    .faq-resposta p {
+        font-size: 34px;
+    }
+    
+    .faq-item.ativo .faq-resposta {
+        padding: 0 20px 22px 20px;
+    }
+}
+
+/* Celulares médios */
+@media (max-width: 480px) {
+    .faq-container {
+        padding: 0 12px;
+        gap: 12px;
+    }
+    
+    .faq-pergunta {
+        padding: 20px 18px;
+        gap: 12px;
+    }
+    
+    .faq-texto {
+        font-size: 34px;
+    }
+    
+    .faq-seta {
+        font-size: 44px;
+    }
+    
+    .faq-resposta p {
+        font-size: 30px;
+    }
+    
+    .faq-item.ativo .faq-resposta {
+        padding: 0 18px 20px 18px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 360px) {
+    .faq-header {
+        padding: 10px 10px 30px 10px;
+    }
+    
+    .faq-container {
+        padding: 0 10px;
+        gap: 10px;
+    }
+    
+    .faq-item {
+        border-radius: 15px;
+    }
+    
+    .faq-pergunta {
+        padding: 18px 15px;
+        gap: 10px;
+    }
+    
+    .faq-texto {
+        font-size: 30px;
+    }
+    
+    .faq-seta {
+        font-size: 40px;
+    }
+    
+    .faq-resposta p {
+        font-size: 27px;
+    }
+    
+    .faq-item.ativo .faq-resposta {
+        padding: 0 15px 18px 15px;
+    }
+}
