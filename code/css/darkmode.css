@@ -1,0 +1,104 @@
+/* ========================================
+   DARK MODE - TODAS AS PROPRIEDADES
+   ======================================== */
+
+/* ===== GERAL ===== */
+body.dark-mode {
+    background-color: #26251e;
+}
+
+body.dark-mode ::selection {
+    background-color: #ffea98;
+    color: #1a1a2e;
+}
+
+/* ===== TÍTULOS ===== */
+body.dark-mode .titulosite {
+    animation: cortexto-dark 8s ease-in-out infinite;
+}
+
+body.dark-mode .titulo2site {
+    animation: cortexto2-dark 8s ease-in-out infinite;
+}
+
+body.dark-mode .subtitulosite {
+    color: #ffffff;
+}
+
+/* ===== BOTÕES DO TOPO ===== */
+body.dark-mode .botaohomepage {
+    background-color: #423f2d;
+    color: #ffffff;
+}
+
+body.dark-mode .botaohomepage:active {
+    background-color: #423f2d;
+}
+
+/* ===== BARRA DE PESQUISA ===== */
+body.dark-mode .barrapesquisa {
+    background: #423f2d;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .search-input {
+    color: #ffffff;
+}
+
+body.dark-mode .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== FOOTER ===== */
+body.dark-mode .footer-texto {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ===== BOTÃO DARK MODE ===== */
+body.dark-mode .darkmode-toggle {
+    background-color: #423f2d;
+}
+
+body.dark-mode .darkmode-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* ===== ÍCONES ===== */
+body.dark-mode .icones-botao,
+body.dark-mode .search-icon,
+body.dark-mode .globo {
+    filter: brightness(0) invert(1);
+}
+
+/* ===== FAQ ===== */
+body.dark-mode .faq-item {
+    background: #423f2d;
+}
+
+body.dark-mode .faq-texto {
+    color: #fff;
+}
+
+body.dark-mode .faq-seta {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .faq-resposta p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .faq-email {
+    color: #f39c12;
+    background: rgba(243, 156, 18, 0.15);
+}
+
+/* ===== ANIMAÇÕES DARK MODE ===== */
+@keyframes cortexto-dark {
+    0%, 100% { color: #ffffff; }
+    50% { color: #ffea98; }
+}
+
+@keyframes cortexto2-dark {
+    0%, 100% { color: #ffea98; }
+    50% { color: #ffffff; }
+}
