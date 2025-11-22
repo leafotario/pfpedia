@@ -1,65 +1,67 @@
 /* ESSE CSS SÓ VAI TER COISAS QUE SERÃO USADAS NO INDEX.HTML (VULGO HOMEPAGE DO SITE) */
 
-@keyframes cortexto { /*animação do título do site */
-    0%, 100% {
-        color: #000000;
-    }
-    50% {
-        color: #ffea98;
-    }
+@keyframes cortexto {
+    0%, 100% { color: #000000; }
+    50% { color: #ffea98; }
 }
 
-@keyframes cortexto2 { /*animação do título do site soq invertida */
-    0%, 100% {
-        color: #ffea98;
-    }
-    50% {
-        color: #000000;
-    }
+@keyframes cortexto2 {
+    0%, 100% { color: #ffea98; }
+    50% { color: #000000; }
 }
 
+/* ===== TÍTULO PRINCIPAL ===== */
 .titulosite {
     text-align: center;
     font-family: "Litebulb";
-    font-size: 150px;
+    font-size: 120px;
     animation: cortexto 8s ease-in-out infinite;
+    margin: 0;
+    padding: 0 15px;
+    line-height: 1;
 }
 
 .titulo2site {
     text-align: center;
     font-family: "Litebulb";
-    font-size: 150px;
+    font-size: 80px;
     animation: cortexto2 8s ease-in-out infinite;
+    margin: 0 0 15px 0;
+    padding: 0 15px;
+    line-height: 1.1;
 }
 
+/* ===== SUBTÍTULO ===== */
 .subtitulosite {
     text-align: center;
     font-family: "Litebulb";
     color: #000000;
-    font-size: 62px;
-    line-height: 0.8;
-    margin-bottom: 20px;
+    font-size: 42px;
+    line-height: 1.15;
+    margin: 15px auto 25px auto;
+    padding: 0 25px;
+    max-width: 1100px;
 }
 
-.textosite {
-    text-align: center;
-    font-family: "Litebulb";
-    color: #000000;
-    font-size: 48px;
-    line-height: 5px;
-}
-
+/* ===== BARRA DE PESQUISA ===== */
 .barrapesquisa {
     position: relative;
     height: 70px;
     border-radius: 35px;
     background: #ffea98;
-    box-shadow: 0 8px 16px 0 rgba(31, 38, 135, 0.37);
-    padding: 8px;
-    margin-bottom: 40px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    margin: 0 auto 50px auto;
+    max-width: 800px;
+    width: 85%;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
-/* form de pesquisa */
+.barrapesquisa:focus-within {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
 .search-form {
     width: 100%;
     height: 100%;
@@ -68,50 +70,57 @@
     position: relative;
 }
 
-/* input da pesquisa */
 .search-input {
     width: 100%;
     height: 100%;
     border: none;
     background: transparent;
     font-family: "Litebulb";
-    font-size: 36px;
+    font-size: 32px;
     color: #000000;
-    padding: 0 70px 0 30px;
+    padding: 0 70px 0 25px;
     outline: none;
 }
 
-/* placeholder do input */
 .search-input::placeholder {
-    color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.45);
     font-family: "Litebulb";
 }
 
-/* botão de pesquisa com lupa */
 .search-button {
     position: absolute;
-    right: 15px;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
     border: none;
     background: transparent;
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.15s ease;
     padding: 0;
+    border-radius: 50%;
 }
 
-/* ícone da lupa */
+.search-button:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+.search-button:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
 .search-icon {
-    width: 32px;
+    width: 30px;
     height: auto;
 }
 
-/* globo q fica quicando */
+/* ===== GLOBO ===== */
 .globo {
     position: fixed;
     width: 60px;
@@ -119,4 +128,207 @@
     pointer-events: none;
     z-index: -1;
     transition: filter 0.3s;
+}
+
+/* ===== SEÇÕES ===== */
+.secao-explicacao {
+    margin-top: 80px;
+    padding: 0 20px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    margin-top: 60px;
+    padding: 25px 20px 35px 20px;
+    text-align: center;
+}
+
+.footer-texto {
+    font-family: "Litebulb";
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* ===== RESPONSIVIDADE - MAIOR EM TELAS MENORES ===== */
+
+/* Telas grandes */
+@media (min-width: 1200px) {
+    .titulosite {
+        font-size: 150px;
+    }
+    
+    .titulo2site {
+        font-size: 100px;
+    }
+    
+    .subtitulosite {
+        font-size: 52px;
+    }
+    
+    .search-input {
+        font-size: 38px;
+    }
+    
+    .barrapesquisa {
+        height: 75px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .titulosite {
+        font-size: 130px;
+    }
+    
+    .titulo2site {
+        font-size: 90px;
+    }
+    
+    .subtitulosite {
+        font-size: 48px;
+        line-height: 1.0;
+    }
+    
+    .barrapesquisa {
+        height: 72px;
+        width: 90%;
+    }
+    
+    .search-input {
+        font-size: 36px;
+        padding: 0 65px 0 20px;
+    }
+    
+    .search-icon {
+        width: 32px;
+    }
+    
+    .footer-texto {
+        font-size: 26px;
+    }
+}
+
+/* Celulares grandes */
+@media (max-width: 576px) {
+    .titulosite {
+        font-size: 140px;
+    }
+    
+    .titulo2site {
+        font-size: 95px;
+    }
+    
+    .subtitulosite {
+        font-size: 52px;
+        line-height: 1.0;
+        padding: 0 18px;
+    }
+    
+    .barrapesquisa {
+        height: 75px;
+        width: 92%;
+        border-radius: 38px;
+    }
+    
+    .search-input {
+        font-size: 40px;
+        padding: 0 60px 0 18px;
+    }
+    
+    .search-button {
+        width: 52px;
+        height: 52px;
+    }
+    
+    .search-icon {
+        width: 34px;
+    }
+    
+    .secao-explicacao {
+        margin-top: 60px;
+    }
+    
+    .footer-texto {
+        font-size: 28px;
+    }
+}
+
+/* Celulares médios */
+@media (max-width: 480px) {
+    .titulosite {
+        font-size: 105px;
+    }
+    
+    .titulo2site {
+        font-size: 72px;
+    }
+    
+    .subtitulosite {
+        font-size: 46px;
+        line-height: 0.9;
+        padding: 0 15px;
+    }
+    
+    .barrapesquisa {
+        height: 70px;
+        width: 94%;
+        border-radius: 35px;
+    }
+    
+    .search-input {
+        font-size: 38px;
+        padding: 0 58px 0 15px;
+    }
+    
+    .search-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .search-icon {
+        width: 32px;
+    }
+    
+    .footer-texto {
+        font-size: 26px;
+    }
+}
+
+/* Celulares pequenos */
+@media (max-width: 360px) {
+    .titulosite {
+        font-size: 85px;
+    }
+    
+    .titulo2site {
+        font-size: 60px;
+    }
+    
+    .subtitulosite {
+        font-size: 40px;
+        padding: 0 12px;
+    }
+    
+    .barrapesquisa {
+        height: 65px;
+        width: 95%;
+    }
+    
+    .search-input {
+        font-size: 34px;
+        padding: 0 55px 0 12px;
+    }
+    
+    .search-button {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .search-icon {
+        width: 30px;
+    }
+    
+    .footer-texto {
+        font-size: 24px;
+    }
 }
