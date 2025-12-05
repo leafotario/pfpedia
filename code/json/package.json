@@ -1,7 +1,7 @@
 {
   "name": "pfpedia",
   "version": "1.0.0",
-  "description": "PFPedia - Profile Picture Archive",
+  "description": "PFPedia",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
