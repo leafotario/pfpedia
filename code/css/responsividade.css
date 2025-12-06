@@ -1,22 +1,47 @@
-/* AQUI TEM TUDO OQ PRECISA PRO SITE SER RESPONSIVO */
-/* ===== BARRA.CSS - BOTÕES DO TOPO ===== */
+/* ================================================================================
+   ARQUIVO DE RESPONSIVIDADE - PFPEDIA
+   ================================================================================
+   Este arquivo centraliza todas as media queries e ajustes responsivos do site.
+   Organizado por página e elemento para fácil manutenção.
+   ================================================================================ */
 
-/* Telas grandes */
+/* ================================================================================
+   ÍNDICE:
+   1. BARRA.CSS - Botões do Topo (index.html)
+   2. BARRA.CSS - Botão Dark Mode (global)
+   3. BARRAPESQUISA.CSS - Página de Pesquisa (pesquisa.html)
+   4. GERAL.CSS - Títulos e Subtítulos (global)
+   5. HOMEPAGE.CSS - Barra de Pesquisa (index.html)
+   6. FAQ.CSS - Página de FAQ (faq.html)
+   ================================================================================ */
+
+
+/* ================================================================================
+   1. BARRA.CSS - BOTÕES DO TOPO (index.html)
+   ================================================================================
+   Ajustes de tamanho, padding e ícones dos botões de navegação da página inicial.
+   Elementos afetados: .botaohomepage, .icones-botao
+   ================================================================================ */
+
+/* Telas grandes (desktops, monitores grandes) */
 @media (min-width: 1200px) {
+    /* Botão homepage - aumenta tamanho para telas grandes */
     .botaohomepage {
         font-size: 48px;
         height: 52px;
         padding: 0 20px 0 55px;
     }
     
+    /* Ícones dos botões - aumenta proporcionalmente */
     .icones-botao {
         width: 36px;
         left: 12px;
     }
 }
 
-/* Tablets */
+/* Tablets (iPad, tablets Android) */
 @media (max-width: 768px) {
+    /* Botão homepage - ajusta para tablets */
     .botaohomepage {
         font-size: 42px;
         height: 54px;
@@ -25,14 +50,16 @@
         padding: 0 16px 0 50px;
     }
     
+    /* Ícones dos botões */
     .icones-botao {
         width: 32px;
         left: 10px;
     }
 }
 
-/* Celulares grandes */
+/* Celulares grandes (iPhone Plus, Galaxy S, etc) */
 @media (max-width: 576px) {
+    /* Botão homepage - aumenta fonte para melhor legibilidade */
     .botaohomepage {
         font-size: 46px;
         height: 58px;
@@ -41,14 +68,16 @@
         padding: 0 14px 0 52px;
     }
     
+    /* Ícones dos botões */
     .icones-botao {
         width: 36px;
         left: 10px;
     }
 }
 
-/* Celulares médios */
+/* Celulares médios (iPhone 12/13, Galaxy A) */
 @media (max-width: 480px) {
+    /* Botão homepage - equilibra tamanho */
     .botaohomepage {
         font-size: 40px;
         height: 55px;
@@ -57,14 +86,16 @@
         padding: 0 12px 0 48px;
     }
     
+    /* Ícones dos botões */
     .icones-botao {
         width: 34px;
         left: 9px;
     }
 }
 
-/* Celulares pequenos */
+/* Celulares pequenos (iPhone SE, Galaxy A10) */
 @media (max-width: 360px) {
+    /* Botão homepage - reduz para caber na tela */
     .botaohomepage {
         font-size: 34px;
         height: 52px;
@@ -73,15 +104,25 @@
         padding: 0 10px 0 42px;
     }
     
+    /* Ícones dos botões */
     .icones-botao {
         width: 30px;
         left: 8px;
     }
 }
 
-/* ===== BARRA.CSS - DARK MODE TOGGLE ===== */
 
+/* ================================================================================
+   2. BARRA.CSS - BOTÃO DARK MODE (global)
+   ================================================================================
+   Posicionamento e tamanho do botão de alternância do modo escuro.
+   Elemento afetado: .darkmode-toggle, .darkmode-icon
+   Funciona em todas as páginas do site.
+   ================================================================================ */
+
+/* Tablets e menores - move botão para canto inferior */
 @media (max-width: 992px) {
+    /* Dark mode toggle - reposiciona para não sobrepor conteúdo */
     .darkmode-toggle {
         top: auto;
         bottom: 20px;
@@ -89,7 +130,9 @@
     }
 }
 
+/* Celulares grandes - aumenta área de toque */
 @media (max-width: 576px) {
+    /* Dark mode toggle - aumenta para facilitar toque */
     .darkmode-toggle {
         width: 55px;
         height: 55px;
@@ -97,13 +140,16 @@
         right: 18px;
     }
     
+    /* Ícone do dark mode */
     .darkmode-icon {
         width: 32px;
         height: 32px;
     }
 }
 
+/* Celulares pequenos - ajusta posição */
 @media (max-width: 360px) {
+    /* Dark mode toggle - reduz para liberar espaço */
     .darkmode-toggle {
         width: 50px;
         height: 50px;
@@ -111,347 +157,492 @@
         right: 15px;
     }
     
+    /* Ícone do dark mode */
     .darkmode-icon {
         width: 28px;
         height: 28px;
     }
 }
 
-/* ===== GERAL.CSS - TÍTULOS E SUBTÍTULOS ===== */
 
+/* ================================================================================
+   3. BARRAPESQUISA.CSS - PÁGINA DE PESQUISA (pesquisa.html)
+   ================================================================================
+   Responsividade da barra de navegação com pesquisa e botões.
+   Inclui layout horizontal (telas landscape) e vertical (telas portrait).
+   Elementos afetados: .barra-topo, .search-input-topo, .botao-nav, etc.
+   ================================================================================ */
+
+/* Telas verticais (portrait) - muda layout completamente */
+@media (max-aspect-ratio: 1/1) {
+    /* ESCONDE LAYOUT HORIZONTAL - usado em telas landscape */
+    .barra-horizontal {
+        display: none;
+    }
+
+    /* MOSTRA LAYOUT VERTICAL - botões com texto em grade Bootstrap */
+    .barra-vertical {
+        display: block;
+    }
+
+    /* MOSTRA BARRA DE PESQUISA VERTICAL - versão grande centralizada */
+    .barrapesquisa-vertical {
+        display: block;
+    }
+}
+
+/* Tablets - ajusta fonte da barra de pesquisa horizontal */
+@media (max-width: 768px) {
+    /* Barra de pesquisa do topo - aumenta legibilidade */
+    .search-input-topo {
+        font-size: 26px;
+    }
+}
+
+/* Celulares grandes - aumenta ainda mais a fonte */
+@media (max-width: 576px) {
+    /* Barra de pesquisa do topo - fonte maior para mobile */
+    .search-input-topo {
+        font-size: 30px;
+    }
+}
+
+/* Celulares pequenos - máxima legibilidade */
+@media (max-width: 400px) {
+    /* Barra de pesquisa do topo - máximo de legibilidade */
+    .search-input-topo {
+        font-size: 34px;
+    }
+}
+
+
+/* ================================================================================
+   4. GERAL.CSS - TÍTULOS E SUBTÍTULOS (global)
+   ================================================================================
+   Ajustes tipográficos dos títulos principais e secundários do site.
+   Elementos afetados: .titulosite, .titulo2site, .subtitulosite, .footer-texto
+   Usados em todas as páginas.
+   ================================================================================ */
+
+/* Telas grandes - aumenta impacto visual */
 @media (min-width: 1200px) {
+    /* Título principal (PFPedia) */
     .titulosite {
         font-size: 150px;
     }
     
+    /* Título secundário (what is pfpedia?) */
     .titulo2site {
         font-size: 100px;
     }
     
+    /* Subtítulo e textos descritivos */
     .subtitulosite {
         font-size: 52px;
     }
 }
 
+/* Tablets - reduz para caber na tela */
 @media (max-width: 768px) {
+    /* Título principal */
     .titulosite {
         font-size: 130px;
     }
     
+    /* Título secundário */
     .titulo2site {
         font-size: 90px;
     }
     
+    /* Subtítulo - ajusta line-height para mobile */
     .subtitulosite {
         font-size: 48px;
         line-height: 1.0;
     }
 }
 
+/* Celulares grandes - aumenta para melhor legibilidade */
 @media (max-width: 576px) {
+    /* Título principal - aumenta contraste */
     .titulosite {
         font-size: 140px;
     }
     
+    /* Título secundário */
     .titulo2site {
         font-size: 95px;
     }
     
+    /* Subtítulo - adiciona padding lateral */
     .subtitulosite {
         font-size: 52px;
         line-height: 1.0;
         padding: 0 18px;
     }
     
+    /* Footer - aumenta legibilidade */
     .footer-texto {
         font-size: 28px;
     }
 }
 
+/* Celulares médios - equilibra tamanhos */
 @media (max-width: 480px) {
+    /* Título principal */
     .titulosite {
         font-size: 105px;
     }
     
+    /* Título secundário */
     .titulo2site {
         font-size: 72px;
     }
     
+    /* Subtítulo - reduz line-height */
     .subtitulosite {
         font-size: 46px;
         line-height: 0.9;
         padding: 0 15px;
     }
     
+    /* Footer */
     .footer-texto {
         font-size: 26px;
     }
 }
 
+/* Celulares pequenos - reduz para caber */
 @media (max-width: 360px) {
+    /* Título principal */
     .titulosite {
         font-size: 85px;
     }
     
+    /* Título secundário */
     .titulo2site {
         font-size: 60px;
     }
     
+    /* Subtítulo */
     .subtitulosite {
         font-size: 40px;
         padding: 0 12px;
     }
     
+    /* Footer */
     .footer-texto {
         font-size: 24px;
     }
 }
 
-/* ===== HOMEPAGE.CSS - BARRA DE PESQUISA ===== */
 
-/* Telas grandes */
+/* ================================================================================
+   5. HOMEPAGE.CSS - BARRA DE PESQUISA (index.html)
+   ================================================================================
+   Ajustes da barra de pesquisa principal da página inicial.
+   Elementos afetados: .barrapesquisa, .search-input, .search-button, .search-icon
+   Também afeta .secao-explicacao
+   ================================================================================ */
+
+/* Telas grandes - aumenta toda a barra */
 @media (min-width: 1200px) {
+    /* Input da barra de pesquisa - fonte maior */
     .search-input {
         font-size: 38px;
     }
     
+    /* Container da barra - aumenta altura */
     .barrapesquisa {
         height: 75px;
     }
 }
 
-/* Tablets */
+/* Tablets - ajusta proporções */
 @media (max-width: 768px) {
+    /* Container da barra - ajusta altura e largura */
     .barrapesquisa {
         height: 72px;
         width: 90%;
     }
     
+    /* Input da barra de pesquisa */
     .search-input {
         font-size: 36px;
         padding: 0 65px 0 20px;
     }
     
+    /* Ícone de pesquisa (lupa) */
     .search-icon {
         width: 32px;
     }
 }
 
-/* Celulares grandes */
+/* Celulares grandes - otimiza para toque */
 @media (max-width: 576px) {
+    /* Container da barra - aumenta para área de toque */
     .barrapesquisa {
         height: 75px;
         width: 92%;
         border-radius: 38px;
     }
     
+    /* Input da barra de pesquisa - fonte maior para mobile */
     .search-input {
         font-size: 40px;
         padding: 0 60px 0 18px;
     }
     
+    /* Botão de pesquisa - aumenta área de toque */
     .search-button {
         width: 52px;
         height: 52px;
     }
     
+    /* Ícone de pesquisa */
     .search-icon {
         width: 34px;
     }
     
+    /* Seção explicativa - reduz margem superior */
     .secao-explicacao {
         margin-top: 60px;
     }
 }
 
-/* Celulares médios */
+/* Celulares médios - equilibra elementos */
 @media (max-width: 480px) {
+    /* Container da barra */
     .barrapesquisa {
         height: 70px;
         width: 94%;
         border-radius: 35px;
     }
     
+    /* Input da barra de pesquisa */
     .search-input {
         font-size: 38px;
         padding: 0 58px 0 15px;
     }
     
+    /* Botão de pesquisa */
     .search-button {
         width: 50px;
         height: 50px;
     }
     
+    /* Ícone de pesquisa */
     .search-icon {
         width: 32px;
     }
 }
 
-/* Celulares pequenos */
+/* Celulares pequenos - máxima compatibilidade */
 @media (max-width: 360px) {
+    /* Container da barra - compacta */
     .barrapesquisa {
         height: 65px;
         width: 95%;
     }
     
+    /* Input da barra de pesquisa */
     .search-input {
         font-size: 34px;
         padding: 0 55px 0 12px;
     }
     
+    /* Botão de pesquisa */
     .search-button {
         width: 48px;
         height: 48px;
     }
     
+    /* Ícone de pesquisa */
     .search-icon {
         width: 30px;
     }
 }
 
-/* ===== FAQ.CSS - PÁGINA DE FAQ ===== */
 
-/* Telas grandes */
+/* ================================================================================
+   6. FAQ.CSS - PÁGINA DE FAQ (faq.html)
+   ================================================================================
+   Responsividade da página de perguntas frequentes.
+   Elementos afetados: .faq-container, .faq-item, .faq-pergunta, .faq-texto, 
+   .faq-seta, .faq-resposta
+   ================================================================================ */
+
+/* Telas grandes - aumenta largura e fontes */
 @media (min-width: 1200px) {
+    /* Container principal das FAQs - limita largura */
     .faq-container {
         max-width: 1000px;
     }
     
+    /* Texto da pergunta */
     .faq-texto {
         font-size: 44px;
     }
     
+    /* Texto da resposta */
     .faq-resposta p {
         font-size: 38px;
     }
 }
 
-/* Tablets */
+/* Tablets - ajusta espaçamentos */
 @media (max-width: 768px) {
+    /* Container principal - reduz padding e gap */
     .faq-container {
         padding: 0 20px;
         gap: 15px;
     }
     
+    /* Área clicável da pergunta */
     .faq-pergunta {
         padding: 22px 25px;
     }
     
+    /* Texto da pergunta */
     .faq-texto {
         font-size: 36px;
     }
     
+    /* Seta indicadora */
     .faq-seta {
         font-size: 45px;
     }
     
+    /* Texto da resposta */
     .faq-resposta p {
         font-size: 32px;
     }
     
+    /* Resposta quando item está ativo (aberto) */
     .faq-item.ativo .faq-resposta {
         padding: 0 25px 22px 25px;
     }
 }
 
-/* Celulares grandes */
+/* Celulares grandes - otimiza para mobile */
 @media (max-width: 576px) {
+    /* Header da página FAQ */
     .faq-header {
         padding: 15px 15px 40px 15px;
     }
     
+    /* Container principal */
     .faq-container {
         padding: 0 15px;
         gap: 14px;
     }
     
+    /* Item individual da FAQ - ajusta border-radius */
     .faq-item {
         border-radius: 18px;
     }
     
+    /* Área clicável da pergunta */
     .faq-pergunta {
         padding: 22px 20px;
         gap: 15px;
     }
     
+    /* Texto da pergunta - aumenta para mobile */
     .faq-texto {
         font-size: 38px;
     }
     
+    /* Seta indicadora */
     .faq-seta {
         font-size: 48px;
     }
     
+    /* Texto da resposta */
     .faq-resposta p {
         font-size: 34px;
     }
     
+    /* Resposta quando item está ativo */
     .faq-item.ativo .faq-resposta {
         padding: 0 20px 22px 20px;
     }
 }
 
-/* Celulares médios */
+/* Celulares médios - equilibra tamanhos */
 @media (max-width: 480px) {
+    /* Container principal */
     .faq-container {
         padding: 0 12px;
         gap: 12px;
     }
     
+    /* Área clicável da pergunta */
     .faq-pergunta {
         padding: 20px 18px;
         gap: 12px;
     }
     
+    /* Texto da pergunta */
     .faq-texto {
         font-size: 34px;
     }
     
+    /* Seta indicadora */
     .faq-seta {
         font-size: 44px;
     }
     
+    /* Texto da resposta */
     .faq-resposta p {
         font-size: 30px;
     }
     
+    /* Resposta quando item está ativo */
     .faq-item.ativo .faq-resposta {
         padding: 0 18px 20px 18px;
     }
 }
 
-/* Celulares pequenos */
+/* Celulares pequenos - compacta ao máximo */
 @media (max-width: 360px) {
+    /* Header da página FAQ */
     .faq-header {
         padding: 10px 10px 30px 10px;
     }
     
+    /* Container principal */
     .faq-container {
         padding: 0 10px;
         gap: 10px;
     }
     
+    /* Item individual da FAQ */
     .faq-item {
         border-radius: 15px;
     }
     
+    /* Área clicável da pergunta */
     .faq-pergunta {
         padding: 18px 15px;
         gap: 10px;
     }
     
+    /* Texto da pergunta */
     .faq-texto {
         font-size: 30px;
     }
     
+    /* Seta indicadora */
     .faq-seta {
         font-size: 40px;
     }
     
+    /* Texto da resposta */
     .faq-resposta p {
         font-size: 27px;
     }
     
+    /* Resposta quando item está ativo */
     .faq-item.ativo .faq-resposta {
         padding: 0 15px 18px 15px;
     }
