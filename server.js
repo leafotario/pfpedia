@@ -36,7 +36,6 @@ app.get('/', (req, res) => {
             .replace(/src="\.\.\/\.\.\/assets\//g, 'src="/assets/')
             .replace(/href="\.\.\/\.\.\/assets\//g, 'href="/assets/');
         
-        
         res.send(correctedHtml);
     });
 });
@@ -60,7 +59,6 @@ app.get('/faq', (req, res) => {
     });
 });
 
-
 app.get('/php/:filename', (req, res) => {
     const phpPath = path.join(__dirname, 'code', 'php', req.params.filename);
     
@@ -77,34 +75,8 @@ app.all('/pesquisa.php', (req, res) => {
     
     if (fs.existsSync(phpPath)) {
         res.type('text/html');
-        
-
-        if (req.method === 'POST') {
-            fs.readFile(phpPath, 'utf8', (err, data) => {
-                if (err) {
-                    res.sendFile(phpPath);
-                    return;
-                }
-                
-                const debugInfo = `
-                    <!-- DEBUG INFO -->
-                    <div style="background:#f0f0f0; padding:10px; margin:20px; border:1px solid #ccc;">
-                        <h3>Informações do Formulário:</h3>
-                        <p><strong>Método:</strong> ${req.method}</p>
-                        <p><strong>Personagem pesquisado:</strong> ${req.body.personagem || req.query.personagem || '(não especificado)'}</p>
-                        <p><strong>Nota:</strong> PHP não está sendo executado no Render. Para funcionalidade completa, você precisará de um servidor com PHP.</p>
-                    </div>
-                `;
-                
-                // Inserir no final do body
-                const modifiedPHP = data.replace('</body>', debugInfo + '</body>');
-                res.send(modifiedPHP);
-            });
-        } else {
-            res.sendFile(phpPath);
-        }
+        res.sendFile(phpPath);
     } else {
-
         res.send(`
             <!DOCTYPE html>
             <html lang="pt-br">
@@ -161,6 +133,13 @@ app.get('/placeholdernames.json', (req, res) => {
         res.type('application/json');
         res.sendFile(jsonPath);
     } else {
+        res.json([
+            { "id": 1, "name": "Naruto Uzumaki", "category": "Anime" },
+            { "id": 2, "name": "Goku", "category": "Anime" },
+            { "id": 3, "name": "Mario", "category": "Games" }
+        ]);
+    }
+});
 
 app.get('/health', (req, res) => {
     res.json({
@@ -214,9 +193,8 @@ app.use((req, res) => {
     `);
 });
 
-
-
 app.listen(PORT, () => {
     console.log(`
-    olá`);
+    olá! sou o pfpedia server.
+    `);
 });
