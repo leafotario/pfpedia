@@ -92,6 +92,40 @@ body.dark-mode .faq-email {
     background: rgba(243, 156, 18, 0.15);
 }
 
+/* ===== PÁGINA DE PESQUISA ===== */
+/* Barra de pesquisa do topo (horizontal) */
+body.dark-mode .barra-pesquisa-topo {
+    background: #423f2d;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .search-input-topo {
+    color: #ffffff;
+}
+
+body.dark-mode .search-input-topo::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+body.dark-mode .search-icon-topo {
+    filter: brightness(0) invert(1);
+}
+
+/* Barra de pesquisa vertical */
+body.dark-mode .barrapesquisa-vertical {
+    background: #423f2d;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Botões de navegação */
+body.dark-mode .botao-nav {
+    background-color: #423f2d;
+}
+
+body.dark-mode .botao-nav img {
+    filter: brightness(0) invert(1);
+}
+
 /* ===== ANIMAÇÕES DARK MODE ===== */
 @keyframes cortexto-dark {
     0%, 100% { color: #ffffff; }
