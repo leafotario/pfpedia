@@ -92,3 +92,108 @@
     margin-top: 80px;
     padding: 0 20px;
 }
+
+/* ===== EFEITO FOG (NÉVOA) ===== */
+.fog-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.15;
+    overflow: hidden;
+}
+
+.fog {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 234, 152, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(255, 234, 152, 0.10) 0%, transparent 60%),
+        radial-gradient(circle at 40% 80%, rgba(255, 234, 152, 0.08) 0%, transparent 60%);
+    animation: fogMove 80s infinite linear;
+}
+
+.fog2 {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: 
+        radial-gradient(circle at 60% 30%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.06) 0%, transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.04) 0%, transparent 60%);
+    animation: fogMove2 60s infinite linear reverse;
+}
+
+@keyframes fogMove {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(-25%, -10%) rotate(5deg);
+    }
+    50% {
+        transform: translate(-50%, -25%) rotate(10deg);
+    }
+    75% {
+        transform: translate(-25%, -10%) rotate(5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes fogMove2 {
+    0% {
+        transform: translate(-50%, -25%) rotate(-10deg);
+    }
+    25% {
+        transform: translate(-25%, -10%) rotate(-5deg);
+    }
+    50% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    75% {
+        transform: translate(-25%, -10%) rotate(-5deg);
+    }
+    100% {
+        transform: translate(-50%, -25%) rotate(-10deg);
+    }
+}
+
+/* ===== EFEITO SUAVE PARA ELEMENTOS PRINCIPAIS ===== */
+.titulosite, .subtitulosite, .titulo2site {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== ANIMAÇÃO SUAVE PARA A PÁGINA ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.titulosite {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.subtitulosite {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.barrapesquisa {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.secao-explicacao {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+}
