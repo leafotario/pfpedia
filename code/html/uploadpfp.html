@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#ffea98" id="theme-color-meta">
+    <title>Upload PFP | PFPedia</title>
+    <link rel="stylesheet" href="../css/geral.css">
+    <link rel="stylesheet" href="../css/barra.css">
+    <link rel="stylesheet" href="../css/uploadpfp.css">
+    <link rel="stylesheet" href="../css/darkmode.css">
+    <link rel="stylesheet" href="../css/responsividade.css">
+    <link rel="icon" type="image/png" href="../../assets/images/logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #fff7b1;
+        }
+    </style>
+    <!-- BOTÃO DARK MODE -->
+    <button class="darkmode-toggle" id="darkmode-toggle" aria-label="Toggle dark mode">
+        <img src="../../assets/icons/bulb.png" alt="Toggle dark mode" class="darkmode-icon">
+    </button>
+
+    <img src="../../assets/images/globo.png" class="globo" id="globo" alt="Globo">
+    <script src="../js/globo.js"></script>
+    <script src="../js/darkmode.js"></script>
+
+    <!-- TOPO DO SITE COM BOTÕES -->
+    <nav class="container-fluid px-2 px-sm-3 py-3">
+        <div class="row g-2 justify-content-center">
+
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="index.html">
+                    <button class="botaohomepage w-100">
+                        <img src="../../assets/icons/home.png" class="icones-botao" alt="home">
+                        <span>home</span>
+                    </button>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="#">
+                    <button class="botaohomepage w-100">
+                        <img src="../../assets/icons/warning.png" class="icones-botao" alt="rules">
+                        <span>rules</span>
+                    </button>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="faq.html">
+                    <button class="botaohomepage w-100">
+                        <img src="../../assets/icons/faq.png" class="icones-botao" alt="faq">
+                        <span>faq</span>
+                    </button>
+                </a>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-2 temlink">
+                <a href="#">
+                    <button class="botaohomepage w-100">
+                        <img src="../../assets/icons/sign up.png" class="icones-botao" alt="signup">
+                        <span>sign up</span>
+                    </button>
+                </a>
+            </div>
+
+            <div class="col-12 col-sm-8 col-lg-2 temlink">
+                <a href="uploadpfp.html">
+                    <button class="botaohomepage w-100">
+                        <img src="../../assets/icons/upload pfp.png" class="icones-botao" alt="upload">
+                        <span>upload pfp</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h1 class="titulo2site">upload profile picture</h1>
+        <p class="subtitulosite"><em>contribute to the archive!</em></p>
+    </header>
+
+    <!-- UPLOAD -->
+    <div class="upload-container">
+        <form action="../php/upload.php" method="POST" enctype="multipart/form-data" class="upload-form" id="upload-form">
+            
+            <div class="form-content">
+                <!-- PREVIEW DA IMAGEM -->
+                <div class="preview-section">
+                    <div class="preview-box" id="preview-box">
+                        <div class="preview-placeholder">
+                            <img src="../../assets/icons/world.png" class="placeholder-icon" alt="upload">
+                            <p class="placeholder-text">preview</p>
+                        </div>
+                        <div class="image-preview" id="image-preview"></div>
+                    </div>
+                </div>
+
+                <div class="inputs-section">
+                    <!-- UPLOAD DE IMAGEM -->
+                    <div class="input-group">
+                        <label class="input-label">profile picture</label>
+                        <input type="file" id="pfp-image" name="pfp-image" accept=".jpg,.jpeg,.jfif,.png,.webp" required class="file-input">
+                        <label for="pfp-image" class="file-button">
+                            <img src="../../assets/icons/upload pfp.png" class="button-icon" alt="upload">
+                            <span class="button-text">upload image</span>
+                        </label>
+                        <p class="file-info">max 5MB <br> 256x256 to 2048x2048 <br> jpeg, png, webp</p>
+                    </div>
+
+                    <!-- NOME DO PERSONAGEM -->
+                    <div class="input-group">
+                        <label class="input-label">character name</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="character-name" name="character-name" class="text-input" placeholder="Enter character name..." maxlength="25" required>
+                        </div>
+                        <p class="input-warning">fictional characters only</p>
+                    </div>
+
+                    <!-- NOME DA OBRA -->
+                    <div class="input-group">
+                        <label class="input-label">source material</label>
+                        <div class="input-wrapper">
+                            <input type="text" id="source-name" name="source-name" class="text-input" placeholder="Enter source name..." maxlength="45" required>
+                        </div>
+                        <p class="input-warning">where is this character from?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CHECKBOX DE TERMOS -->
+            <div class="terms-section">
+                <label class="terms-label">
+                    <input type="checkbox" id="terms-checkbox" name="terms-checkbox" required class="terms-checkbox">
+                    <span class="terms-text">by uploading this image, i acknowledge and agree to pfpedia's terms of service and content guidelines.</span>
+                </label>
+            </div>
+
+            <!-- BOTÃO DE SUBMIT (EMBAIXO NO CENTRO) -->
+            <button type="submit" class="submit-button">
+                <img src="../../assets/icons/upload pfp.png" class="submit-icon" alt="upload">
+                <span>submit</span>
+            </button>
+
+        </form>
+    </div>
+
+    <footer>
+        <p class="footer-texto">© 2025 PFPedia. All rights reserved.</p>
+    </footer>
+
+    <script src="../js/uploadpreview.js"></script>
+
+</body>
+</html>
