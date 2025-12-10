@@ -126,6 +126,91 @@ body.dark-mode .botao-nav img {
     filter: brightness(0) invert(1);
 }
 
+/* ===== PÁGINA DE UPLOAD PFP ===== */
+/* Preview box */
+body.dark-mode .preview-box {
+    background: #423f2d;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .placeholder-icon {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .placeholder-text {
+    color: #ffffff;
+}
+
+/* Labels */
+body.dark-mode .input-label {
+    color: #ffffff;
+}
+
+/* Botão de escolher arquivo */
+body.dark-mode .file-button {
+    background: #423f2d;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .file-button:hover {
+    background: #423f2d;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .button-text {
+    color: #ffffff;
+}
+
+body.dark-mode .button-icon {
+    filter: brightness(0) invert(1);
+}
+
+body.dark-mode .file-info {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Inputs de texto */
+body.dark-mode .input-wrapper {
+    background: #423f2d;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .input-wrapper:focus-within {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-mode .text-input {
+    color: #ffffff;
+}
+
+body.dark-mode .text-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .input-warning {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Checkbox de termos */
+body.dark-mode .terms-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .terms-checkbox {
+    accent-color: #423f2d;
+}
+
+/* Botão de submit */
+body.dark-mode .submit-button {
+    background: #423f2d;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .submit-button:hover {
+    background: #423f2d;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
 /* ===== ANIMAÇÕES DARK MODE ===== */
 @keyframes cortexto-dark {
     0%, 100% { color: #ffffff; }
