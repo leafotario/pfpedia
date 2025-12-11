@@ -1,223 +1,541 @@
-/* ========================================
-   DARK MODE - TODAS AS PROPRIEDADES
-   ======================================== */
+/* ================================================================================
+   DARKMODE.CSS - SISTEMA DE MODO ESCURO DO PFPEDIA
+   ================================================================================
+   
+   Este arquivo contém TODAS as regras CSS que modificam a aparência do site
+   quando o modo escuro está ativado. O modo escuro é acionado pela classe
+   'dark-mode' no elemento <body>, que é adicionada/removida via darkmode.js.
+   
+   ESTRUTURA DO ARQUIVO:
+   1. Estilos Globais (aplicados em todas as páginas)
+   2. Componentes Compartilhados (navbar, footer, botões)
+   3. Página Inicial (index.html)
+   4. Página de FAQ (faq.html)
+   5. Página de Pesquisa (pesquisa.html)
+   6. Página de Upload (uploadpfp.html)
+   7. Página de Regras (regras.html)
+   8. Animações
+   
+   ================================================================================ */
 
-/* ===== GERAL ===== */
+
+/* ================================================================================
+   1. ESTILOS GLOBAIS - APLICADOS EM TODAS AS PÁGINAS
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   BACKGROUND GERAL DO SITE
+   Usado em: TODAS as páginas (index.html, faq.html, regras.html, etc)
+   Localização: Elemento <body> - fundo de toda a página
+   Descrição: Muda o fundo amarelo claro (#fff7b1) para um marrom escuro (#26251e)
+   ---------------------------------------------------------------------------- */
 body.dark-mode {
     background-color: #26251e;
 }
 
+/* ----------------------------------------------------------------------------
+   TEXTO SELECIONADO
+   Usado em: TODAS as páginas
+   Localização: Qualquer texto selecionado pelo usuário (highlight)
+   Descrição: Mantém o fundo amarelo (#ffea98) mas escurece o texto para contraste
+   ---------------------------------------------------------------------------- */
 body.dark-mode ::selection {
     background-color: #ffea98;
     color: #1a1a2e;
 }
 
-/* ===== TÍTULOS ===== */
+
+/* ================================================================================
+   2. TÍTULOS - USADOS EM MÚLTIPLAS PÁGINAS
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   TÍTULO PRINCIPAL GRANDE (120px)
+   Usado em: index.html
+   Localização: Header principal - "PFPedia" no topo da homepage
+   Descrição: Alterna entre branco e amarelo com animação (cortexto-dark)
+   ---------------------------------------------------------------------------- */
 body.dark-mode .titulosite {
     animation: cortexto-dark 8s ease-in-out infinite;
 }
 
+/* ----------------------------------------------------------------------------
+   TÍTULO SECUNDÁRIO MÉDIO (80px)
+   Usado em: faq.html, regras.html, uploadpfp.html
+   Localização: Header das páginas internas - Ex: "FAQ", "Community Rules"
+   Descrição: Alterna entre amarelo e branco com animação (cortexto2-dark)
+   ---------------------------------------------------------------------------- */
 body.dark-mode .titulo2site {
     animation: cortexto2-dark 8s ease-in-out infinite;
 }
 
+/* ----------------------------------------------------------------------------
+   SUBTÍTULO (42px)
+   Usado em: index.html, faq.html, regras.html
+   Localização: Logo abaixo dos títulos principais
+   Descrição: Texto descritivo que fica branco no dark mode
+   ---------------------------------------------------------------------------- */
 body.dark-mode .subtitulosite {
     color: #ffffff;
 }
 
-/* ===== BOTÕES DO TOPO ===== */
+
+/* ================================================================================
+   3. COMPONENTES COMPARTILHADOS - NAVBAR, FOOTER, BOTÕES
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   BOTÕES DA BARRA DE NAVEGAÇÃO NO TOPO
+   Usado em: TODAS as páginas
+   Localização: Navbar horizontal no topo - Botões "home", "rules", "faq", etc
+   Descrição: Botões amarelos (#ffea98) ficam marrom escuro (#423f2d) com texto branco
+   ---------------------------------------------------------------------------- */
 body.dark-mode .botaohomepage {
     background-color: #423f2d;
     color: #ffffff;
 }
 
+/* Estado ativo (quando clicado) dos botões do topo */
 body.dark-mode .botaohomepage:active {
     background-color: #423f2d;
 }
 
-/* ===== BARRA DE PESQUISA ===== */
+/* ----------------------------------------------------------------------------
+   ÍCONES DENTRO DOS BOTÕES DO TOPO
+   Usado em: TODAS as páginas
+   Localização: Ícones à esquerda dos textos nos botões (home.png, warning.png, etc)
+   Descrição: Inverte a cor dos ícones para ficarem brancos no fundo escuro
+   ---------------------------------------------------------------------------- */
+body.dark-mode .icones-botao {
+    filter: brightness(0) invert(1);
+}
+
+/* ----------------------------------------------------------------------------
+   BOTÃO FLUTUANTE DE DARK MODE (canto superior direito)
+   Usado em: TODAS as páginas
+   Localização: Botão circular fixo no canto superior direito da tela
+   Descrição: Botão que alterna entre modo claro/escuro
+   ---------------------------------------------------------------------------- */
+body.dark-mode .darkmode-toggle {
+    background-color: #423f2d;
+}
+
+/* Ícone da lâmpada dentro do botão dark mode */
+body.dark-mode .darkmode-icon {
+    filter: brightness(0) invert(1);
+}
+
+/* ----------------------------------------------------------------------------
+   GLOBO ANIMADO (quica pela tela)
+   Usado em: TODAS as páginas
+   Localização: Elemento decorativo que fica quicando pela página (posição fixa)
+   Descrição: Inverte a cor do globo para se adaptar ao fundo escuro
+   Nota: A inversão é aplicada via JavaScript (globo.js) combinada com hue-rotate
+   ---------------------------------------------------------------------------- */
+body.dark-mode .globo {
+    filter: brightness(0) invert(1);
+}
+
+/* ----------------------------------------------------------------------------
+   RODAPÉ (FOOTER)
+   Usado em: TODAS as páginas
+   Localização: Parte inferior de todas as páginas - "© 2025 PFPedia"
+   Descrição: Texto do footer fica branco semi-transparente (50% opacidade)
+   ---------------------------------------------------------------------------- */
+body.dark-mode .footer-texto {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/* ================================================================================
+   4. PÁGINA INICIAL (index.html) - BARRA DE PESQUISA PRINCIPAL
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   BARRA DE PESQUISA DA HOMEPAGE
+   Usado em: index.html
+   Localização: Barra de pesquisa grande no centro da homepage
+   Descrição: Container arredondado que contém o input de busca e ícone de lupa
+   ---------------------------------------------------------------------------- */
 body.dark-mode .barrapesquisa {
     background: #423f2d;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
+/* Input de texto dentro da barra de pesquisa */
 body.dark-mode .search-input {
     color: #ffffff;
 }
 
+/* Placeholder "search for profile pictures..." */
 body.dark-mode .search-input::placeholder {
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* ===== FOOTER ===== */
-body.dark-mode .footer-texto {
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* ===== BOTÃO DARK MODE ===== */
-body.dark-mode .darkmode-toggle {
-    background-color: #423f2d;
-}
-
-body.dark-mode .darkmode-icon {
+/* Ícone de lupa na barra de pesquisa */
+body.dark-mode .search-icon {
     filter: brightness(0) invert(1);
 }
 
-/* ===== ÍCONES ===== */
-body.dark-mode .icones-botao,
-body.dark-mode .search-icon,
-body.dark-mode .globo {
-    filter: brightness(0) invert(1);
-}
 
-/* ===== FAQ ===== */
+/* ================================================================================
+   5. PÁGINA DE FAQ (faq.html)
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CARDS DE PERGUNTAS DO FAQ (acordeões)
+   Usado em: faq.html
+   Localização: Cards expansíveis que contêm perguntas e respostas
+   Descrição: Cada pergunta fica em um card arredondado que abre/fecha ao clicar
+   ---------------------------------------------------------------------------- */
 body.dark-mode .faq-item {
     background: #423f2d;
 }
 
+/* ----------------------------------------------------------------------------
+   TEXTO DA PERGUNTA (dentro do botão clicável)
+   Usado em: faq.html
+   Localização: Texto principal de cada pergunta no FAQ
+   Descrição: Texto da pergunta fica branco para contraste com o fundo escuro
+   ---------------------------------------------------------------------------- */
 body.dark-mode .faq-texto {
     color: #fff;
 }
 
+/* ----------------------------------------------------------------------------
+   SETA/INDICADOR DE EXPANSÃO (símbolo "+")
+   Usado em: faq.html
+   Localização: Lado direito de cada card de pergunta
+   Descrição: Símbolo "+" que fica branco semi-transparente (40% opacidade)
+   ---------------------------------------------------------------------------- */
 body.dark-mode .faq-seta {
     color: rgba(255, 255, 255, 0.4);
 }
 
+/* ----------------------------------------------------------------------------
+   TEXTO DAS RESPOSTAS (conteúdo escondido/expansível)
+   Usado em: faq.html
+   Localização: Conteúdo que aparece quando você clica em uma pergunta
+   Descrição: Parágrafos da resposta ficam branco semi-transparente (70% opacidade)
+   ---------------------------------------------------------------------------- */
 body.dark-mode .faq-resposta p {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* ----------------------------------------------------------------------------
+   EMAIL DESTACADO (dentro das respostas)
+   Usado em: faq.html
+   Localização: Email de contato destacado nas respostas do FAQ
+   Descrição: Email fica laranja (#f39c12) com fundo laranja semi-transparente
+   ---------------------------------------------------------------------------- */
 body.dark-mode .faq-email {
     color: #f39c12;
     background: rgba(243, 156, 18, 0.15);
 }
 
-/* ===== PÁGINA DE PESQUISA ===== */
-/* Barra de pesquisa do topo (horizontal) */
+
+/* ================================================================================
+   6. PÁGINA DE PESQUISA (pesquisa.html)
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   BARRA DE PESQUISA DO TOPO (versão horizontal menor)
+   Usado em: pesquisa.html
+   Localização: Barra de pesquisa horizontal fixa no topo da página de resultados
+   Descrição: Versão compacta da barra de pesquisa para usar enquanto navega
+   ---------------------------------------------------------------------------- */
 body.dark-mode .barra-pesquisa-topo {
     background: #423f2d;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
+/* Input de texto da barra de pesquisa do topo */
 body.dark-mode .search-input-topo {
     color: #ffffff;
 }
 
+/* Placeholder da barra de pesquisa do topo */
 body.dark-mode .search-input-topo::placeholder {
     color: rgba(255, 255, 255, 0.5);
 }
 
+/* Ícone de lupa da barra de pesquisa do topo */
 body.dark-mode .search-icon-topo {
     filter: brightness(0) invert(1);
 }
 
-/* Barra de pesquisa vertical */
+/* ----------------------------------------------------------------------------
+   BARRA DE PESQUISA VERTICAL (lateral)
+   Usado em: pesquisa.html
+   Localização: Barra de pesquisa vertical na lateral da página de resultados
+   Descrição: Versão vertical alternativa da barra de pesquisa
+   ---------------------------------------------------------------------------- */
 body.dark-mode .barrapesquisa-vertical {
     background: #423f2d;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-/* Botões de navegação */
+/* ----------------------------------------------------------------------------
+   BOTÕES DE NAVEGAÇÃO (paginação, filtros)
+   Usado em: pesquisa.html
+   Localização: Botões de navegação entre páginas de resultados
+   Descrição: Botões de "próxima página", "página anterior", etc
+   ---------------------------------------------------------------------------- */
 body.dark-mode .botao-nav {
     background-color: #423f2d;
 }
 
+/* Ícones dentro dos botões de navegação */
 body.dark-mode .botao-nav img {
     filter: brightness(0) invert(1);
 }
 
-/* ===== PÁGINA DE UPLOAD PFP ===== */
-/* Preview box */
+
+/* ================================================================================
+   7. PÁGINA DE UPLOAD (uploadpfp.html)
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   PREVIEW BOX (área de visualização da imagem)
+   Usado em: uploadpfp.html
+   Localização: Box grande onde aparece a preview da imagem antes de fazer upload
+   Descrição: Área quadrada/retangular que mostra a imagem selecionada
+   ---------------------------------------------------------------------------- */
 body.dark-mode .preview-box {
     background: #423f2d;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
+/* ----------------------------------------------------------------------------
+   ÍCONE DE PLACEHOLDER (quando não há imagem)
+   Usado em: uploadpfp.html
+   Localização: Ícone mostrado no centro da preview box quando nenhuma imagem foi selecionada
+   Descrição: Ícone de imagem/upload que fica visível antes de escolher arquivo
+   ---------------------------------------------------------------------------- */
 body.dark-mode .placeholder-icon {
     filter: brightness(0) invert(1);
 }
 
+/* ----------------------------------------------------------------------------
+   TEXTO DO PLACEHOLDER
+   Usado em: uploadpfp.html
+   Localização: Texto "Select an image to upload" dentro da preview box vazia
+   Descrição: Texto explicativo quando não há imagem carregada
+   ---------------------------------------------------------------------------- */
 body.dark-mode .placeholder-text {
     color: #ffffff;
 }
 
-/* Labels */
+/* ----------------------------------------------------------------------------
+   LABELS DOS INPUTS (títulos dos campos)
+   Usado em: uploadpfp.html
+   Localização: Labels acima dos campos de input - Ex: "Character Name", "Source"
+   Descrição: Texto que identifica cada campo do formulário
+   ---------------------------------------------------------------------------- */
 body.dark-mode .input-label {
     color: #ffffff;
 }
 
-/* Botão de escolher arquivo */
+/* ----------------------------------------------------------------------------
+   BOTÃO DE ESCOLHER ARQUIVO
+   Usado em: uploadpfp.html
+   Localização: Botão grande "Choose File" que abre o seletor de arquivos
+   Descrição: Botão principal para selecionar a imagem do computador
+   ---------------------------------------------------------------------------- */
 body.dark-mode .file-button {
     background: #423f2d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Estado hover do botão de escolher arquivo */
 body.dark-mode .file-button:hover {
     background: #423f2d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Texto dentro do botão de arquivo */
 body.dark-mode .button-text {
     color: #ffffff;
 }
 
+/* Ícone dentro do botão de arquivo */
 body.dark-mode .button-icon {
     filter: brightness(0) invert(1);
 }
 
+/* ----------------------------------------------------------------------------
+   INFORMAÇÃO DO ARQUIVO SELECIONADO
+   Usado em: uploadpfp.html
+   Localização: Texto abaixo do botão "Choose File" mostrando nome/tamanho do arquivo
+   Descrição: Informações sobre o arquivo selecionado (nome, tamanho, formato)
+   ---------------------------------------------------------------------------- */
 body.dark-mode .file-info {
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* Inputs de texto */
+/* ----------------------------------------------------------------------------
+   WRAPPER DOS INPUTS DE TEXTO (container)
+   Usado em: uploadpfp.html
+   Localização: Container que envolve os campos de texto (Character Name, Source, Tags)
+   Descrição: Box arredondado que contém cada input de texto do formulário
+   ---------------------------------------------------------------------------- */
 body.dark-mode .input-wrapper {
     background: #423f2d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Estado focus dos inputs (quando clicado/ativo) */
 body.dark-mode .input-wrapper:focus-within {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
+/* ----------------------------------------------------------------------------
+   INPUTS DE TEXTO (campos editáveis)
+   Usado em: uploadpfp.html
+   Localização: Campos onde usuário digita (Character Name, Source, Tags)
+   Descrição: Campos de texto onde o usuário insere informações da imagem
+   ---------------------------------------------------------------------------- */
 body.dark-mode .text-input {
     color: #ffffff;
 }
 
+/* Placeholder dos inputs de texto */
 body.dark-mode .text-input::placeholder {
     color: rgba(255, 255, 255, 0.4);
 }
 
+/* ----------------------------------------------------------------------------
+   AVISOS DOS INPUTS (texto de ajuda)
+   Usado em: uploadpfp.html
+   Localização: Pequenos textos abaixo dos inputs - Ex: "Maximum 50 characters"
+   Descrição: Dicas e limitações mostradas abaixo de cada campo
+   ---------------------------------------------------------------------------- */
 body.dark-mode .input-warning {
     color: rgba(255, 255, 255, 0.5);
 }
 
-/* Checkbox de termos */
+/* ----------------------------------------------------------------------------
+   CHECKBOX DE TERMOS (aceitar termos)
+   Usado em: uploadpfp.html
+   Localização: Checkbox "I agree to the terms and conditions"
+   Descrição: Checkbox que usuário precisa marcar antes de fazer upload
+   ---------------------------------------------------------------------------- */
 body.dark-mode .terms-text {
     color: rgba(255, 255, 255, 0.7);
 }
 
+/* Cor de destaque do checkbox */
 body.dark-mode .terms-checkbox {
     accent-color: #423f2d;
 }
 
-/* Botão de submit */
+/* ----------------------------------------------------------------------------
+   BOTÃO DE SUBMIT (enviar formulário)
+   Usado em: uploadpfp.html
+   Localização: Botão final "Upload Profile Picture" no fim do formulário
+   Descrição: Botão principal que submete o upload da imagem
+   ---------------------------------------------------------------------------- */
 body.dark-mode .submit-button {
     background: #423f2d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Estado hover do botão de submit */
 body.dark-mode .submit-button:hover {
     background: #423f2d;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== ANIMAÇÕES DARK MODE ===== */
-@keyframes cortexto-dark {
-    0%, 100% { color: #ffffff; }
-    50% { color: #ffea98; }
+
+/* ================================================================================
+   8. PÁGINA DE REGRAS (regras.html)
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CARDS DAS REGRAS (containers principais)
+   Usado em: regras.html
+   Localização: Cards arredondados que contêm cada regra numerada
+   Descrição: Cada regra fica em um card individual com número, título e descrição
+   ---------------------------------------------------------------------------- */
+body.dark-mode .regra-card {
+    background: #423f2d;
 }
 
-@keyframes cortexto2-dark {
-    0%, 100% { color: #ffea98; }
-    50% { color: #ffffff; }
+/* ----------------------------------------------------------------------------
+   NÚMERO DA REGRA (grande à esquerda)
+   Usado em: regras.html
+   Localização: Número grande (1, 2, 3...) no lado esquerdo de cada card
+   Descrição: Número identificador de cada regra em fonte grande
+   ---------------------------------------------------------------------------- */
+body.dark-mode .regra-numero {
+    color: rgba(255, 255, 255, 0.3);
 }
+
+/* ----------------------------------------------------------------------------
+   TÍTULO DA REGRA (heading principal)
+   Usado em: regras.html
+   Localização: Título destacado de cada regra - Ex: "No NSFW Images"
+   Descrição: Nome/título principal que descreve cada regra
+   ---------------------------------------------------------------------------- */
+body.dark-mode .regra-titulo {
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+   TEXTO EXPLICATIVO DA REGRA (parágrafo)
+   Usado em: regras.html
+   Localização: Parágrafo que explica a regra em detalhes abaixo do título
+   Descrição: Texto descritivo que detalha o que a regra significa
+   ---------------------------------------------------------------------------- */
+body.dark-mode .regra-texto {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ----------------------------------------------------------------------------
+   LISTA DENTRO DA REGRA (bullet points)
+   Usado em: regras.html - especificamente na Regra 4 (File Requirements)
+   Localização: Lista com requisitos técnicos (tamanho, dimensões, formatos)
+   Descrição: Lista com marcadores mostrando especificações técnicas
+   ---------------------------------------------------------------------------- */
+body.dark-mode .regra-lista {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Texto em negrito dentro das listas (ex: "5MB", "256×256") */
+body.dark-mode .regra-lista strong {
+    color: #ffffff;
+}
+
+
+/* ================================================================================
+   9. ANIMAÇÕES - USADAS EM TÍTULOS
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   ANIMAÇÃO DO TÍTULO PRINCIPAL (titulosite)
+   Usado em: index.html
+   Localização: Título "PFPedia" na homepage
+   Descrição: Alterna suavemente entre branco e amarelo em loop infinito
+   Duração: 8 segundos por ciclo completo
+   ---------------------------------------------------------------------------- */
+@keyframes cortexto-dark {
+    0%, 100% { color: #ffffff; }    /* Início e fim: branco */
+    50% { color: #ffea98; }         /* Meio: amarelo */
+}
+
+/* ----------------------------------------------------------------------------
+   ANIMAÇÃO DO TÍTULO SECUNDÁRIO (titulo2site)
+   Usado em: faq.html, regras.html, uploadpfp.html
+   Localização: Títulos das páginas internas
+   Descrição: Alterna entre amarelo e branco (inverso da animação principal)
+   Duração: 8 segundos por ciclo completo
+   ---------------------------------------------------------------------------- */
+@keyframes cortexto2-dark {
+    0%, 100% { color: #ffea98; }    /* Início e fim: amarelo */
+    50% { color: #ffffff; }         /* Meio: branco */
+}
+
+
+/* ================================================================================
+   FIM DO ARQUIVO DARKMODE.CSS
+   ================================================================================ */
