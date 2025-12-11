@@ -1,0 +1,93 @@
+/* ============================================
+   REGRAS.CSS - PÁGINA DE REGRAS DO PFPEDIA
+   ============================================ */
+
+/* ===== HEADER DA PÁGINA ===== */
+.regras-header {
+    text-align: center;
+    padding: 20px 20px 30px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ===== CONTAINER PRINCIPAL DAS REGRAS ===== */
+.regras-container {
+    max-width: 900px;
+    margin: 0 auto 60px auto;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ===== CARD DE CADA REGRA ===== */
+.regra-card {
+    background: #ffea98;
+    border-radius: 20px;
+    padding: 25px 30px;
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.regra-card:hover {
+    transform: translateY(-2px);
+}
+
+/* ===== NÚMERO DA REGRA ===== */
+.regra-numero {
+    font-family: "Litebulb";
+    font-size: 60px;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.3);
+    min-width: 70px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* ===== CONTEÚDO DA REGRA ===== */
+.regra-conteudo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ===== TÍTULO DA REGRA ===== */
+.regra-titulo {
+    font-family: "Litebulb";
+    font-size: 38px;
+    color: #000000;
+    line-height: 1.15;
+    margin: 0;
+}
+
+/* ===== TEXTO DA REGRA ===== */
+.regra-texto {
+    font-family: "Litebulb";
+    font-size: 28px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* ===== LISTA DENTRO DA REGRA ===== */
+.regra-lista {
+    font-family: "Litebulb";
+    font-size: 28px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.4;
+    margin: 8px 0 0 0;
+    padding-left: 30px;
+    list-style-type: disc;
+}
+
+.regra-lista li {
+    margin: 4px 0;
+}
+
+.regra-lista strong {
+    color: #000000;
+    font-weight: normal;
+}
