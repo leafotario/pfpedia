@@ -852,3 +852,308 @@
         font-size: 18px;
     }
 }
+
+
+/* ================================================================================
+   8. REGRAS.CSS - PÁGINA DE REGRAS (regras.html)
+   ================================================================================
+   Responsividade da página de regras da comunidade.
+   PRINCÍPIO FUNDAMENTAL: Telas menores = FONTES MAIORES (especialmente portrait)
+   
+   LÓGICA DO DESIGN:
+   - Landscape (horizontal): Fontes moderadas, pois há mais espaço horizontal
+   - Portrait (vertical): Fontes MUITO maiores, pois é celular e precisa legibilidade
+   
+   BREAKPOINTS IMPLEMENTADOS:
+   - 1024px: Tablets landscape (iPad Pro horizontal)
+   - 768px: Tablets portrait (iPad vertical) - Muda layout para vertical
+   - 640px landscape: Smartphones horizontais
+   - 640px portrait: Smartphones verticais - AUMENTA FONTES SIGNIFICATIVAMENTE
+   - 480px portrait: Smartphones médios verticais - FONTES AINDA MAIORES
+   - 390px portrait: Smartphones pequenos (iPhone 12/13) - ULTRA AUMENTO
+   - 360px portrait: Smartphones compactos (Galaxy A) - MÁXIMA LEGIBILIDADE
+   
+   ELEMENTOS RESPONSIVOS:
+   - .regras-header: Cabeçalho da página com título e subtítulo
+   - .regras-container: Container principal com cards das regras
+   - .regra-card: Card individual de cada regra
+   - .regra-numero: Número grande (1, 2, 3...) à esquerda do card
+   - .regra-titulo: Título principal da regra (ex: "No NSFW Images")
+   - .regra-texto: Parágrafo explicativo da regra
+   - .regra-lista: Lista com marcadores (usado na regra 4)
+   
+   MUDANÇAS DE LAYOUT:
+   - Desktop: Layout horizontal com número à esquerda, conteúdo à direita
+   - Mobile (≤768px): Layout vertical centralizado, número acima do conteúdo
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   TABLETS LANDSCAPE (1024px ou menos)
+   Dispositivos: iPad Pro horizontal, Surface Pro, tablets Android grandes
+   Mudanças: Leve aumento nas fontes para melhor legibilidade
+   Layout: Mantém horizontal (número à esquerda)
+   ---------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .regra-titulo {
+        font-size: 40px;
+    }
+
+    .regra-texto {
+        font-size: 30px;
+    }
+
+    .regra-lista {
+        font-size: 30px;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   TABLETS PORTRAIT (768px ou menos)
+   Dispositivos: iPad vertical, tablets Android médios
+   Mudanças CRÍTICAS:
+   - Layout muda de HORIZONTAL para VERTICAL
+   - Número da regra vai para o TOPO (centralizado)
+   - Conteúdo centralizado abaixo do número
+   - Fontes aumentam moderadamente
+   - Padding ajustado para aproveitar espaço vertical
+   ---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Cabeçalho da página */
+    .regras-header {
+        padding: 15px 15px 25px 15px;
+    }
+
+    /* Container principal - reduz margin-bottom */
+    .regras-container {
+        padding: 0 20px;
+        gap: 15px;
+        margin-bottom: 50px;
+    }
+
+    /* Card da regra - LAYOUT MUDA PARA VERTICAL */
+    .regra-card {
+        padding: 20px 22px;
+        gap: 18px;
+        flex-direction: column;  /* VERTICAL: número acima, conteúdo abaixo */
+        align-items: center;      /* Centraliza tudo */
+        text-align: center;       /* Texto centralizado */
+    }
+
+    /* Número da regra - agora no topo, centralizado */
+    .regra-numero {
+        font-size: 55px;
+        min-width: auto;  /* Remove largura mínima (não precisa mais) */
+    }
+
+    /* Título - aumenta fonte */
+    .regra-titulo {
+        font-size: 42px;
+    }
+
+    /* Texto explicativo - aumenta fonte */
+    .regra-texto {
+        font-size: 32px;
+    }
+
+    /* Lista - aumenta fonte, alinha à esquerda para marcadores */
+    .regra-lista {
+        font-size: 32px;
+        padding-left: 25px;
+        text-align: left;  /* Lista precisa estar à esquerda para marcadores */
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   MOBILE LANDSCAPE (640px ou menos, HORIZONTAL)
+   Dispositivos: Smartphones na horizontal (iPhone, Galaxy S em landscape)
+   Mudanças: Fontes ligeiramente menores que portrait (mais espaço horizontal)
+   Uso: Raro, mas importante para quem assiste vídeos/lê na horizontal
+   ---------------------------------------------------------------------------- */
+@media (max-width: 640px) and (orientation: landscape) {
+    .regra-numero {
+        font-size: 50px;
+    }
+
+    .regra-titulo {
+        font-size: 38px;
+    }
+
+    .regra-texto {
+        font-size: 30px;
+    }
+
+    .regra-lista {
+        font-size: 30px;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   MOBILE PORTRAIT (640px ou menos, VERTICAL) - INÍCIO DO AUMENTO MASSIVO
+   Dispositivos: iPhone 12/13/14, Galaxy S20+, Pixel 6 (todos na VERTICAL)
+   Mudanças CRÍTICAS:
+   - FONTES AUMENTAM SIGNIFICATIVAMENTE (principal objetivo)
+   - Número: 70px (muito maior para impacto visual)
+   - Título: 48px (ótima legibilidade em celular)
+   - Texto: 38px (confortável para leitura rápida)
+   - Line-height aumentado para evitar texto apertado
+   
+   JUSTIFICATIVA: Telas verticais = SEMPRE celulares = precisam MÁXIMA legibilidade
+   ---------------------------------------------------------------------------- */
+@media (max-width: 640px) and (orientation: portrait) {
+    .regras-container {
+        padding: 0 18px;
+        gap: 18px;
+        margin-bottom: 45px;
+    }
+
+    .regra-card {
+        padding: 25px 24px;
+        gap: 20px;
+        border-radius: 18px;
+    }
+
+    /* Número da regra - MUITO maior para impacto */
+    .regra-numero {
+        font-size: 70px;
+    }
+
+    /* Título - fonte grande e clara */
+    .regra-titulo {
+        font-size: 48px;
+    }
+
+    /* Texto - legibilidade prioritária */
+    .regra-texto {
+        font-size: 38px;
+        line-height: 1.4;  /* Mais espaço entre linhas */
+    }
+
+    /* Lista - mesma fonte do texto, espaçamento maior */
+    .regra-lista {
+        font-size: 38px;
+        padding-left: 28px;
+        line-height: 1.5;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   MOBILE PEQUENO PORTRAIT (480px ou menos, VERTICAL) - MÁXIMO AUMENTO
+   Dispositivos: iPhone SE (3ª gen), Galaxy A32, Pixel 5a (todos VERTICAIS)
+   Mudanças: Fontes AINDA MAIORES que o breakpoint anterior
+   - Número: 80px (máximo impacto visual)
+   - Título: 52px (impossível não ler)
+   - Texto: 42px (conforto total)
+   
+   LÓGICA: Tela menor em portrait = celular pequeno = AINDA MAIS legibilidade
+   ---------------------------------------------------------------------------- */
+@media (max-width: 480px) and (orientation: portrait) {
+    .regras-container {
+        padding: 0 16px;
+        gap: 20px;
+    }
+
+    .regra-card {
+        padding: 28px 26px;
+        gap: 22px;
+    }
+
+    /* Número - ULTRA grande */
+    .regra-numero {
+        font-size: 80px;
+    }
+
+    /* Título - máxima visibilidade */
+    .regra-titulo {
+        font-size: 52px;
+    }
+
+    /* Texto - super legível */
+    .regra-texto {
+        font-size: 42px;
+        line-height: 1.45;
+    }
+
+    /* Lista - acompanha o texto */
+    .regra-lista {
+        font-size: 42px;
+        line-height: 1.55;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   MOBILE MUITO PEQUENO PORTRAIT (390px ou menos, VERTICAL)
+   Dispositivos: iPhone 13 mini, Galaxy S10e, dispositivos compactos (VERTICAIS)
+   Mudanças: Fontes CONTINUAM aumentando progressivamente
+   - Número: 85px
+   - Título: 54px
+   - Texto: 44px
+   
+   OBJETIVO: Compensar tela muito pequena com fontes muito grandes
+   ---------------------------------------------------------------------------- */
+@media (max-width: 390px) and (orientation: portrait) {
+    /* Número da regra */
+    .regra-numero {
+        font-size: 85px;
+    }
+
+    /* Título */
+    .regra-titulo {
+        font-size: 54px;
+    }
+
+    /* Texto */
+    .regra-texto {
+        font-size: 44px;
+        line-height: 1.5;
+    }
+
+    /* Lista */
+    .regra-lista {
+        font-size: 44px;
+        line-height: 1.6;
+    }
+}
+
+/* ----------------------------------------------------------------------------
+   MOBILE MICRO PORTRAIT (360px ou menos, VERTICAL) - MÁXIMA LEGIBILIDADE
+   Dispositivos: Galaxy A01, dispositivos Android básicos, telas muito pequenas
+   Mudanças FINAIS: Fontes no MÁXIMO possível sem quebrar layout
+   - Número: 90px (máximo absoluto)
+   - Título: 56px (máxima legibilidade possível)
+   - Texto: 46px (impossível ser mais legível)
+   
+   FILOSOFIA: Se a tela é minúscula, as FONTES são GIGANTES para compensar
+   Este é o último breakpoint, otimizado para os menores dispositivos possíveis
+   ---------------------------------------------------------------------------- */
+@media (max-width: 360px) and (orientation: portrait) {
+    .regras-container {
+        padding: 0 14px;
+    }
+
+    .regra-card {
+        padding: 30px 24px;
+    }
+
+    /* Número - MÁXIMO ABSOLUTO */
+    .regra-numero {
+        font-size: 90px;
+    }
+
+    /* Título - MÁXIMA LEGIBILIDADE */
+    .regra-titulo {
+        font-size: 56px;
+    }
+
+    /* Texto - SUPER LEGÍVEL */
+    .regra-texto {
+        font-size: 46px;
+        line-height: 1.5;
+    }
+
+    /* Lista - acompanha texto, padding reduzido */
+    .regra-lista {
+        font-size: 46px;
+        line-height: 1.65;
+        padding-left: 26px;
+    }
+}
