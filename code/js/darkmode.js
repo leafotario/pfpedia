@@ -15,7 +15,7 @@
         body.classList.add('dark-mode');
         if (themeColorMeta) themeColorMeta.content = '#1a1a2e';
     }
-    
+        // olá
     // Toggle ao clicar
     toggle.addEventListener('click', function() {
         body.classList.toggle('dark-mode');
