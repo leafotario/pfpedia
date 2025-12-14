@@ -1,0 +1,460 @@
+/* ================================================================================
+   SIGNUP.CSS - PÁGINA DE CADASTRO DO PFPEDIA
+   ================================================================================
+   
+   Este arquivo contém os estilos específicos para a página de cadastro (signup.html).
+   Segue o padrão visual estabelecido pelo site com fundo amarelo, fonte Litebulb
+   e elementos arredondados com sombras suaves.
+   
+   ================================================================================ */
+
+/* ===== CONTAINER PRINCIPAL DO FORMULÁRIO ===== */
+.signup-container {
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+/* ===== FORMULÁRIO ===== */
+.signup-form {
+    background: #ffea98;
+    border-radius: 40px;
+    padding: 50px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.3s ease;
+}
+
+/* ===== GRUPO DE CAMPO (cada input com sua label) ===== */
+.form-group {
+    margin-bottom: 30px;
+}
+
+/* Grupo do checkbox tem margin menor */
+.checkbox-group {
+    margin-bottom: 35px;
+    margin-top: 40px;
+}
+
+/* ===== LABELS ===== */
+.form-label {
+    font-family: "Litebulb";
+    font-size: 32px;
+    color: #000000;
+    display: block;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+/* ===== INPUT WRAPPER (container dos inputs) ===== */
+.input-wrapper {
+    position: relative;
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.input-wrapper:focus-within {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* ===== INPUTS DE TEXTO ===== */
+.form-input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font-family: "Litebulb";
+    font-size: 28px;
+    color: #000000;
+    padding: 18px 25px;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-input::placeholder {
+    color: rgba(0, 0, 0, 0.35);
+    font-family: "Litebulb";
+}
+
+/* ===== PASSWORD WRAPPER (para inputs com botão de mostrar/ocultar) ===== */
+.password-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper .form-input {
+    padding-right: 60px;
+}
+
+/* ===== BOTÃO DE MOSTRAR/OCULTAR SENHA ===== */
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    font-size: 24px;
+    opacity: 0.5;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.password-toggle:hover {
+    opacity: 0.8;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.password-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.eye-icon {
+    display: block;
+    line-height: 1;
+}
+
+/* ===== TEXTOS DE AJUDA E ERRO ===== */
+.input-hint {
+    font-family: "Litebulb";
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.45);
+    margin: 8px 0 0 0;
+    padding-left: 5px;
+}
+
+.input-error {
+    font-family: "Litebulb";
+    font-size: 22px;
+    color: #e74c3c;
+    margin: 8px 0 0 0;
+    padding-left: 5px;
+    display: none;
+}
+
+.input-error.show {
+    display: block;
+    animation: shake 0.4s ease;
+}
+
+/* ===== CHECKBOX (termos e condições) ===== */
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    cursor: pointer;
+    font-family: "Litebulb";
+    font-size: 24px;
+    color: #000000;
+}
+
+.form-checkbox {
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    min-height: 28px;
+    cursor: pointer;
+    margin-top: 3px;
+    accent-color: #000000;
+}
+
+.checkbox-text {
+    line-height: 1.4;
+}
+
+.terms-link {
+    color: #000000;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.terms-link:hover {
+    opacity: 0.7;
+}
+
+/* ===== BOTÃO DE SUBMIT ===== */
+.submit-button {
+    width: 100%;
+    background: #000000;
+    border: none;
+    border-radius: 30px;
+    padding: 18px 35px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.submit-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.submit-button:active {
+    transform: translateY(-1px);
+}
+
+.button-text {
+    font-family: "Litebulb";
+    font-size: 34px;
+    color: #ffffff;
+    display: block;
+    line-height: 1;
+}
+
+/* ===== LINK DE LOGIN ===== */
+.login-text {
+    font-family: "Litebulb";
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 0;
+}
+
+.login-link {
+    color: #000000;
+    text-decoration: underline;
+    transition: opacity 0.2s ease;
+}
+
+.login-link:hover {
+    opacity: 0.7;
+}
+
+/* ===== MENSAGEM DE SUCESSO ===== */
+.success-message {
+    background: #ffea98;
+    border-radius: 40px;
+    padding: 60px 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    display: none;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.success-message.show {
+    display: block;
+}
+
+.success-icon {
+    width: 100px;
+    height: 100px;
+    background: #27ae60;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: #ffffff;
+    margin: 0 auto 30px auto;
+    animation: bounceIn 0.6s ease-out 0.2s both;
+}
+
+.success-title {
+    font-family: "Litebulb";
+    font-size: 56px;
+    color: #000000;
+    margin-bottom: 20px;
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+.success-text {
+    font-family: "Litebulb";
+    font-size: 28px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.4;
+    margin-bottom: 35px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.success-button {
+    display: inline-block;
+    background: #000000;
+    color: #ffffff;
+    font-family: "Litebulb";
+    font-size: 32px;
+    padding: 18px 45px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.6s ease-out 0.5s both;
+}
+
+.success-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* ===== RESPONSIVIDADE PARA MOBILE ===== */
+@media (max-width: 768px) {
+    .signup-form {
+        padding: 40px 25px;
+        border-radius: 35px;
+    }
+    
+    .form-label {
+        font-size: 28px;
+    }
+    
+    .form-input {
+        font-size: 24px;
+        padding: 15px 20px;
+    }
+    
+    .password-wrapper .form-input {
+        padding-right: 55px;
+    }
+    
+    .input-hint {
+        font-size: 18px;
+    }
+    
+    .input-error {
+        font-size: 19px;
+    }
+    
+    .checkbox-label {
+        font-size: 21px;
+    }
+    
+    .form-checkbox {
+        width: 24px;
+        height: 24px;
+        min-width: 24px;
+        min-height: 24px;
+    }
+    
+    .button-text {
+        font-size: 30px;
+    }
+    
+    .login-text {
+        font-size: 21px;
+    }
+    
+    .success-message {
+        padding: 50px 25px;
+    }
+    
+    .success-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 50px;
+    }
+    
+    .success-title {
+        font-size: 48px;
+    }
+    
+    .success-text {
+        font-size: 24px;
+    }
+    
+    .success-button {
+        font-size: 28px;
+        padding: 15px 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-container {
+        padding: 0 15px;
+    }
+    
+    .signup-form {
+        padding: 30px 20px;
+        border-radius: 30px;
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    .form-label {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    
+    .form-input {
+        font-size: 22px;
+        padding: 14px 18px;
+    }
+    
+    .input-wrapper {
+        border-radius: 20px;
+    }
+    
+    .form-input {
+        border-radius: 20px;
+    }
+    
+    .submit-button {
+        border-radius: 25px;
+        padding: 15px 30px;
+    }
+    
+    .success-message {
+        padding: 40px 20px;
+        border-radius: 30px;
+    }
+}

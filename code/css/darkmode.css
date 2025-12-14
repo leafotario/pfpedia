@@ -537,5 +537,221 @@ body.dark-mode .regra-lista strong {
 
 
 /* ================================================================================
+   10. PÁGINA DE CADASTRO (signup.html)
+   ================================================================================ */
+
+/* ----------------------------------------------------------------------------
+   FORMULÁRIO DE CADASTRO (container principal)
+   Usado em: signup.html
+   Localização: Card arredondado que contém todo o formulário de cadastro
+   Descrição: Container principal do formulário fica marrom escuro (#423f2d)
+   ---------------------------------------------------------------------------- */
+body.dark-mode .signup-form {
+    background: #423f2d;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------------------------------------------------------------------
+   LABELS DOS CAMPOS
+   Usado em: signup.html
+   Localização: Labels acima de cada campo - "username", "email", "password"
+   Descrição: Texto identificador dos campos fica branco
+   ---------------------------------------------------------------------------- */
+body.dark-mode .form-label {
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+   WRAPPER DOS INPUTS (container de cada campo)
+   Usado em: signup.html
+   Localização: Box arredondado que envolve cada input de texto
+   Descrição: Mantém fundo branco para contraste com o texto escuro
+   ---------------------------------------------------------------------------- */
+body.dark-mode .input-wrapper {
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .input-wrapper:focus-within {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------------------------------------------------------------------
+   INPUTS DE TEXTO
+   Usado em: signup.html
+   Localização: Campos onde usuário digita username, email, senha
+   Descrição: Mantém texto escuro pois o fundo do input é branco
+   ---------------------------------------------------------------------------- */
+body.dark-mode .form-input {
+    color: #000000;
+}
+
+body.dark-mode .form-input::placeholder {
+    color: rgba(0, 0, 0, 0.35);
+}
+
+/* ----------------------------------------------------------------------------
+   BOTÃO DE MOSTRAR/OCULTAR SENHA
+   Usado em: signup.html
+   Localização: Ícone de olho no lado direito dos campos de senha
+   Descrição: Mantém cor padrão pois está sobre fundo branco
+   ---------------------------------------------------------------------------- */
+body.dark-mode .password-toggle {
+    opacity: 0.5;
+}
+
+body.dark-mode .password-toggle:hover {
+    opacity: 0.8;
+}
+
+/* ----------------------------------------------------------------------------
+   TEXTO DE AJUDA (hints)
+   Usado em: signup.html
+   Localização: Pequenos textos abaixo dos inputs - "3-20 characters", etc
+   Descrição: Texto de ajuda fica branco semi-transparente
+   ---------------------------------------------------------------------------- */
+body.dark-mode .input-hint {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* ----------------------------------------------------------------------------
+   MENSAGENS DE ERRO
+   Usado em: signup.html
+   Localização: Mensagens de validação que aparecem quando há erro
+   Descrição: Mantém vermelho (#e74c3c) para visibilidade do erro
+   ---------------------------------------------------------------------------- */
+body.dark-mode .input-error {
+    color: #e74c3c;
+}
+
+/* ----------------------------------------------------------------------------
+   LABEL DO CHECKBOX (termos)
+   Usado em: signup.html
+   Localização: Texto "i agree to the community rules..."
+   Descrição: Texto do checkbox fica branco
+   ---------------------------------------------------------------------------- */
+body.dark-mode .checkbox-label {
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+   CHECKBOX DE TERMOS
+   Usado em: signup.html
+   Localização: Checkbox que usuário marca para aceitar os termos
+   Descrição: Ajusta a cor de destaque para combinar com dark mode
+   ---------------------------------------------------------------------------- */
+body.dark-mode .form-checkbox {
+    accent-color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+   LINK DOS TERMOS
+   Usado em: signup.html
+   Localização: Link "community rules" dentro do texto do checkbox
+   Descrição: Link fica branco com sublinhado
+   ---------------------------------------------------------------------------- */
+body.dark-mode .terms-link {
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+   BOTÃO DE SUBMIT (criar conta)
+   Usado em: signup.html
+   Localização: Botão final "create account" que submete o formulário
+   Descrição: Inverte cores - fundo branco com texto escuro
+   ---------------------------------------------------------------------------- */
+body.dark-mode .submit-button {
+    background: #ffffff;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .submit-button:hover {
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .button-text {
+    color: #000000;
+}
+
+/* ----------------------------------------------------------------------------
+   TEXTO DE LOGIN
+   Usado em: signup.html
+   Localização: Texto "already have an account? log in here"
+   Descrição: Texto fica branco semi-transparente
+   ---------------------------------------------------------------------------- */
+body.dark-mode .login-text {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ----------------------------------------------------------------------------
+   LINK DE LOGIN
+   Usado em: signup.html
+   Localização: Link "log in here" dentro do texto de login
+   Descrição: Link fica branco com sublinhado
+   ---------------------------------------------------------------------------- */
+body.dark-mode .login-link {
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+   MENSAGEM DE SUCESSO (container)
+   Usado em: signup.html
+   Localização: Card que aparece após cadastro bem-sucedido
+   Descrição: Container de sucesso fica marrom escuro (#423f2d)
+   ---------------------------------------------------------------------------- */
+body.dark-mode .success-message {
+    background: #423f2d;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* ----------------------------------------------------------------------------
+   ÍCONE DE SUCESSO
+   Usado em: signup.html
+   Localização: Círculo verde com checkmark após cadastro
+   Descrição: Mantém verde para indicar sucesso
+   ---------------------------------------------------------------------------- */
+body.dark-mode .success-icon {
+    background: #27ae60;
+}
+
+/* ----------------------------------------------------------------------------
+   TÍTULO DA MENSAGEM DE SUCESSO
+   Usado em: signup.html
+   Localização: Texto "account created!" na mensagem de sucesso
+   Descrição: Título fica branco
+   ---------------------------------------------------------------------------- */
+body.dark-mode .success-title {
+    color: #ffffff;
+}
+
+/* ----------------------------------------------------------------------------
+   TEXTO DA MENSAGEM DE SUCESSO
+   Usado em: signup.html
+   Localização: Texto explicativo na mensagem de sucesso
+   Descrição: Texto fica branco semi-transparente
+   ---------------------------------------------------------------------------- */
+body.dark-mode .success-text {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* ----------------------------------------------------------------------------
+   BOTÃO DA MENSAGEM DE SUCESSO
+   Usado em: signup.html
+   Localização: Botão "go to homepage" na mensagem de sucesso
+   Descrição: Inverte cores - fundo branco com texto escuro
+   ---------------------------------------------------------------------------- */
+body.dark-mode .success-button {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .success-button:hover {
+    box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+    color: #000000;
+}
+
+
+/* ================================================================================
    FIM DO ARQUIVO DARKMODE.CSS
    ================================================================================ */
