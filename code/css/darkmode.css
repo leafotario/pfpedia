@@ -15,6 +15,7 @@
    6. Página de Upload (uploadpfp.html)
    7. Página de Regras (regras.html)
    8. Animações
+   9. Página de Cadastro (signup.html)
    
    ================================================================================ */
 
@@ -557,7 +558,7 @@ body.dark-mode .signup-form {
    Localização: Labels acima de cada campo - "username", "email", "password"
    Descrição: Texto identificador dos campos fica branco
    ---------------------------------------------------------------------------- */
-body.dark-mode .form-label {
+body.dark-mode .signup-form .form-label {
     color: #ffffff;
 }
 
@@ -567,12 +568,12 @@ body.dark-mode .form-label {
    Localização: Box arredondado que envolve cada input de texto
    Descrição: Mantém fundo branco para contraste com o texto escuro
    ---------------------------------------------------------------------------- */
-body.dark-mode .input-wrapper {
+body.dark-mode .signup-form .input-wrapper {
     background: #ffffff;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-body.dark-mode .input-wrapper:focus-within {
+body.dark-mode .signup-form .input-wrapper:focus-within {
     box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -582,11 +583,11 @@ body.dark-mode .input-wrapper:focus-within {
    Localização: Campos onde usuário digita username, email, senha
    Descrição: Mantém texto escuro pois o fundo do input é branco
    ---------------------------------------------------------------------------- */
-body.dark-mode .form-input {
+body.dark-mode .signup-form .form-input {
     color: #000000;
 }
 
-body.dark-mode .form-input::placeholder {
+body.dark-mode .signup-form .form-input::placeholder {
     color: rgba(0, 0, 0, 0.35);
 }
 
@@ -596,11 +597,11 @@ body.dark-mode .form-input::placeholder {
    Localização: Ícone de olho no lado direito dos campos de senha
    Descrição: Mantém cor padrão pois está sobre fundo branco
    ---------------------------------------------------------------------------- */
-body.dark-mode .password-toggle {
+body.dark-mode .signup-form .password-toggle {
     opacity: 0.5;
 }
 
-body.dark-mode .password-toggle:hover {
+body.dark-mode .signup-form .password-toggle:hover {
     opacity: 0.8;
 }
 
@@ -610,7 +611,7 @@ body.dark-mode .password-toggle:hover {
    Localização: Pequenos textos abaixo dos inputs - "3-20 characters", etc
    Descrição: Texto de ajuda fica branco semi-transparente
    ---------------------------------------------------------------------------- */
-body.dark-mode .input-hint {
+body.dark-mode .signup-form .input-hint {
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -620,7 +621,7 @@ body.dark-mode .input-hint {
    Localização: Mensagens de validação que aparecem quando há erro
    Descrição: Mantém vermelho (#e74c3c) para visibilidade do erro
    ---------------------------------------------------------------------------- */
-body.dark-mode .input-error {
+body.dark-mode .signup-form .input-error {
     color: #e74c3c;
 }
 
@@ -630,7 +631,7 @@ body.dark-mode .input-error {
    Localização: Texto "i agree to the community rules..."
    Descrição: Texto do checkbox fica branco
    ---------------------------------------------------------------------------- */
-body.dark-mode .checkbox-label {
+body.dark-mode .signup-form .checkbox-label {
     color: #ffffff;
 }
 
@@ -640,7 +641,7 @@ body.dark-mode .checkbox-label {
    Localização: Checkbox que usuário marca para aceitar os termos
    Descrição: Ajusta a cor de destaque para combinar com dark mode
    ---------------------------------------------------------------------------- */
-body.dark-mode .form-checkbox {
+body.dark-mode .signup-form .form-checkbox {
     accent-color: #ffffff;
 }
 
@@ -650,7 +651,7 @@ body.dark-mode .form-checkbox {
    Localização: Link "community rules" dentro do texto do checkbox
    Descrição: Link fica branco com sublinhado
    ---------------------------------------------------------------------------- */
-body.dark-mode .terms-link {
+body.dark-mode .signup-form .terms-link {
     color: #ffffff;
 }
 
@@ -660,16 +661,16 @@ body.dark-mode .terms-link {
    Localização: Botão final "create account" que submete o formulário
    Descrição: Inverte cores - fundo branco com texto escuro
    ---------------------------------------------------------------------------- */
-body.dark-mode .submit-button {
+body.dark-mode .signup-form .submit-button {
     background: #ffffff;
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
-body.dark-mode .submit-button:hover {
+body.dark-mode .signup-form .submit-button:hover {
     box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
 }
 
-body.dark-mode .button-text {
+body.dark-mode .signup-form .button-text {
     color: #000000;
 }
 
@@ -679,7 +680,7 @@ body.dark-mode .button-text {
    Localização: Texto "already have an account? log in here"
    Descrição: Texto fica branco semi-transparente
    ---------------------------------------------------------------------------- */
-body.dark-mode .login-text {
+body.dark-mode .signup-form .login-text {
     color: rgba(255, 255, 255, 0.6);
 }
 
@@ -689,7 +690,7 @@ body.dark-mode .login-text {
    Localização: Link "log in here" dentro do texto de login
    Descrição: Link fica branco com sublinhado
    ---------------------------------------------------------------------------- */
-body.dark-mode .login-link {
+body.dark-mode .signup-form .login-link {
     color: #ffffff;
 }
 
@@ -753,5 +754,5 @@ body.dark-mode .success-button:hover {
 
 
 /* ================================================================================
-   FIM DO ARQUIVO DARKMODE.CSS
+   QUEM COLOCOU OS COMENTÁRIOS ASSIM DEVE SER AÇOITADO
    ================================================================================ */
