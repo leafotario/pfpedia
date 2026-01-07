@@ -3,24 +3,22 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const session = require('express-session');
-const axios = require('axios'); // Adicionado para Discord OAuth
+const axios = require('axios');
 
 const app = express();
 const PORT = process.env.WEB_SERVER_PORT || 3000;
 
-// ========== MIDDLEWARES ==========
 app.use(express.json());
 app.use(session({
     secret: process.env.SESSION_SECRET || 'pfpedia-session-secret',
     resave: false,
     saveUninitialized: false,
     cookie: { 
-        maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
-        secure: process.env.NODE_ENV === 'production' // Importante para HTTPS
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+        secure: process.env.NODE_ENV === 'production'
     }
 }));
 
-// Middleware para verificar login
 const requireAuth = (req, res, next) => {
     if (!req.session.user && req.path !== '/login') {
         return res.redirect('/login');
@@ -28,13 +26,11 @@ const requireAuth = (req, res, next) => {
     next();
 };
 
-// Middleware para injetar dados do usuário nas views
 app.use((req, res, next) => {
     res.locals.user = req.session.user || null;
     next();
 });
 
-// Servir arquivos estáticos
 app.use(express.static(__dirname));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/css', express.static(path.join(__dirname, 'code', 'css')));
@@ -42,12 +38,9 @@ app.use('/js', express.static(path.join(__dirname, 'code', 'js')));
 
 const API_URL = process.env.API_URL || 'http://localhost:4000';
 
-// ========== ROTAS DE AUTENTICAÇÃO ==========
-
-// Página de login
 app.get('/login', (req, res) => {
     if (req.session.user) {
-        return res.redirect('/dashboard');
+        return res.redirect('/');
     }
     
     const htmlPath = path.join(__dirname, 'code', 'html', 'login.html');
@@ -55,7 +48,6 @@ app.get('/login', (req, res) => {
         return res.sendFile(htmlPath);
     }
     
-    // Página de login padrão (gerada pelo servidor)
     res.send(`
         <!DOCTYPE html>
         <html>
@@ -125,14 +117,12 @@ app.get('/login', (req, res) => {
     `);
 });
 
-// Iniciar login Discord
 app.get('/auth/discord', (req, res) => {
     const scopes = ['identify', 'email'].join('%20');
     const discordUrl = `https://discord.com/api/oauth2/authorize?client_id=${process.env.DISCORD_CLIENT_ID}&redirect_uri=${encodeURIComponent(process.env.DISCORD_REDIRECT_URI)}&response_type=code&scope=${scopes}&prompt=none`;
     res.redirect(discordUrl);
 });
 
-// Callback do Discord
 app.get('/auth/discord/callback', async (req, res) => {
     const { code, error } = req.query;
     
@@ -145,7 +135,6 @@ app.get('/auth/discord/callback', async (req, res) => {
     }
     
     try {
-        // 1. Trocar código por token
         const tokenParams = new URLSearchParams({
             client_id: process.env.DISCORD_CLIENT_ID,
             client_secret: process.env.DISCORD_CLIENT_SECRET,
@@ -160,12 +149,10 @@ app.get('/auth/discord/callback', async (req, res) => {
             { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
         );
         
-        // 2. Buscar dados do usuário
         const userResponse = await axios.get('https://discord.com/api/users/@me', {
             headers: { Authorization: `Bearer ${tokenResponse.data.access_token}` }
         });
         
-        // 3. Salvar na sessão
         req.session.user = {
             id: userResponse.data.id,
             username: userResponse.data.username,
@@ -180,8 +167,7 @@ app.get('/auth/discord/callback', async (req, res) => {
         
         console.log(`✅ Usuário logado: ${req.session.user.username}#${req.session.user.discriminator}`);
         
-        // 4. Redirecionar para dashboard
-        res.redirect('/dashboard');
+        res.redirect('/');
         
     } catch (error) {
         console.error('❌ Erro na autenticação Discord:', error.response?.data || error.message);
@@ -189,143 +175,17 @@ app.get('/auth/discord/callback', async (req, res) => {
     }
 });
 
-// Dashboard (após login)
-app.get('/dashboard', requireAuth, (req, res) => {
-    const htmlPath = path.join(__dirname, 'code', 'html', 'dashboard.html');
-    if (fs.existsSync(htmlPath)) {
-        return res.sendFile(htmlPath);
-    }
-    
-    // Dashboard padrão
-    res.send(`
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>PFPedia - Dashboard</title>
-            <link rel="stylesheet" href="/css/global.css">
-            <style>
-                body {
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                    min-height: 100vh;
-                    padding: 20px;
-                }
-                .container {
-                    max-width: 1200px;
-                    margin: 0 auto;
-                }
-                .header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background: white;
-                    padding: 20px 30px;
-                    border-radius: 15px;
-                    margin-bottom: 30px;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                }
-                .user-info {
-                    display: flex;
-                    align-items: center;
-                    gap: 15px;
-                }
-                .avatar {
-                    width: 50px;
-                    height: 50px;
-                    border-radius: 50%;
-                    border: 3px solid #5865F2;
-                }
-                .btn {
-                    padding: 10px 20px;
-                    border-radius: 8px;
-                    text-decoration: none;
-                    font-weight: 600;
-                    transition: all 0.3s ease;
-                }
-                .btn-primary {
-                    background: #5865F2;
-                    color: white;
-                }
-                .btn-primary:hover {
-                    background: #4752C4;
-                }
-                .btn-logout {
-                    background: #ff4757;
-                    color: white;
-                }
-                .btn-logout:hover {
-                    background: #ff3742;
-                }
-                .cards {
-                    display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 20px;
-                }
-                .card {
-                    background: white;
-                    padding: 25px;
-                    border-radius: 15px;
-                    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-                }
-            </style>
-        </head>
-        <body>
-            <div class="container">
-                <div class="header">
-                    <h1>🎨 PFPedia Dashboard</h1>
-                    <div class="user-info">
-                        <img class="avatar" src="https://cdn.discordapp.com/avatars/${req.session.user.id}/${req.session.user.avatar}.png?size=128" 
-                             onerror="this.src='https://cdn.discordapp.com/embed/avatars/${req.session.user.discriminator % 5}.png'">
-                        <div>
-                            <strong>${req.session.user.username}#${req.session.user.discriminator}</strong>
-                            <div style="font-size: 14px; color: #666;">${req.session.user.email || 'Sem email'}</div>
-                        </div>
-                        <a href="/logout" class="btn btn-logout">Sair</a>
-                    </div>
-                </div>
-                
-                <div class="cards">
-                    <div class="card">
-                        <h3>🔍 Pesquisar PFPs</h3>
-                        <p>Busque por imagens de perfil no banco de dados</p>
-                        <a href="/pesquisa.html" class="btn btn-primary">Ir para Pesquisa</a>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>📊 Seus Dados</h3>
-                        <p><strong>ID:</strong> ${req.session.user.id}</p>
-                        <p><strong>Verificado:</strong> ${req.session.user.verified ? '✅ Sim' : '❌ Não'}</p>
-                        <p><strong>2FA:</strong> ${req.session.user.mfa_enabled ? '✅ Ativado' : '❌ Desativado'}</p>
-                        <p><strong>Login:</strong> ${new Date(req.session.user.loggedAt).toLocaleString()}</p>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>⚙️ Configurações</h3>
-                        <p>Gerencie suas preferências e conta</p>
-                        <a href="/" class="btn btn-primary">Voltar para Home</a>
-                    </div>
-                </div>
-            </div>
-        </body>
-        </html>
-    `);
-});
-
-// Logout
 app.get('/logout', (req, res) => {
     req.session.destroy();
     res.redirect('/');
 });
 
-// ========== ROTAS DE PÁGINAS (HTML) ==========
-
-// Helper para corrigir caminhos dos arquivos HTML
 const serveHtml = (filePath, res, options = {}) => {
     const fullPath = path.join(__dirname, 'code', 'html', filePath);
     
     fs.readFile(fullPath, 'utf8', (err, data) => {
         if (err) {
             console.error(`Erro ao ler ${filePath}:`, err);
-            // Fallback ou 404 se o arquivo não existir
             return res.status(404).send('<h1>404 - Arquivo não encontrado</h1>');
         }
         
@@ -336,7 +196,6 @@ const serveHtml = (filePath, res, options = {}) => {
             .replace(/href="\.\.\/\.\.\/assets\//g, 'href="/assets/')
             .replace(/action="\.\.\/php\/pesquisa\.php"/g, 'action="/pesquisa.html"');
 
-        // Injeção de scripts/elementos adicionais (se necessário)
         if (options.injectScript) {
             correctedHtml = correctedHtml.replace('</body>', options.injectScript + '</body>');
         }
@@ -345,26 +204,24 @@ const serveHtml = (filePath, res, options = {}) => {
     });
 };
 
-// ROTA: Página Inicial (Pública)
 app.get('/', (req, res) => {
     serveHtml('index.html', res, {
         injectScript: req.session.user ? `
             <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
-                <a href="/dashboard" style="background: #5865F2; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    Dashboard
+                <a href="/logout" style="background: #5865F2; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                    Logout
                 </a>
             </div>
         ` : `
             <div style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
                 <a href="/login" style="background: #5865F2; color: white; padding: 10px 20px; border-radius: 8px; text-decoration: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    Login com Discord
+                    Login
                 </a>
             </div>
         `
     });
 });
 
-// ROTA: Pesquisa (Exige Login)
 app.get('/pesquisa.html', requireAuth, (req, res) => {
     serveHtml('pesquisa.html', res, {
         injectScript: `
@@ -385,39 +242,29 @@ app.get('/pesquisa.html', requireAuth, (req, res) => {
     });
 });
 
-// ROTA: FAQ (Pública)
 app.get('/faq', (req, res) => {
     serveHtml('faq.html', res);
 });
 
-// ROTA: Regras (Pública)
 app.get('/regras.html', (req, res) => {
     serveHtml('regras.html', res);
 });
 
-// ROTA: Signup (Pública - Mas pode redirecionar se já logado)
 app.get('/signup.html', (req, res) => {
-    if (req.session.user) return res.redirect('/dashboard');
+    if (req.session.user) return res.redirect('/');
     serveHtml('signup.html', res);
 });
 
-// ROTA: Upload PFP (Exige Login)
 app.get('/uploadpfp.html', requireAuth, (req, res) => {
     serveHtml('uploadpfp.html', res);
 });
 
-
-// ========== ROTAS DA API ==========
-
-// API para obter dados do usuário atual
 app.get('/api/user', (req, res) => {
     if (!req.session.user) {
         return res.status(401).json({ error: 'Não autenticado' });
     }
     res.json(req.session.user);
 });
-
-// ========== HEALTH CHECK ==========
 
 app.get('/health', (req, res) => {
     res.json({
@@ -427,8 +274,6 @@ app.get('/health', (req, res) => {
         timestamp: new Date().toISOString()
     });
 });
-
-// ========== 404 ==========
 
 app.use((req, res) => {
     res.status(404).send(`
@@ -443,10 +288,7 @@ app.use((req, res) => {
     `);
 });
 
-// ========== INICIAR SERVIDOR ==========
-
 app.listen(PORT, () => {
-    console.log(`✅ PFPedia rodando em: http://localhost:${PORT}`);
-    console.log(`🔐 Login: http://localhost:${PORT}/login`);
-    console.log(`📊 Dashboard: http://localhost:${PORT}/dashboard`);
+    console.log(`eu acho isso um pouco intuitivo http://localhost:${PORT}`);
+    console.log(`VOCÊ NÃO VAI ACREDITAR CARA: http://localhost:${PORT}/login`);
 });
