@@ -1,5 +1,166 @@
 /* ESSE CSS É PARA A PÁGINA DE UPLOAD DE PROFILE PICTURES */
 
+        /* Estilos para o modal de crop */
+        .crop-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .crop-modal.active {
+            display: flex;
+        }
+        
+        .crop-container {
+            background: #fff;
+            border-radius: 25px;
+            padding: 30px;
+            max-width: 90%;
+            max-height: 90%;
+            width: 800px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        body.dark-mode .crop-container {
+            background: #423f2d;
+        }
+        
+        .crop-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .crop-title {
+            font-family: "Litebulb";
+            font-size: 38px;
+            color: #000;
+            margin: 0;
+        }
+        
+        body.dark-mode .crop-title {
+            color: #fff;
+        }
+        
+        .crop-close {
+            background: none;
+            border: none;
+            font-size: 40px;
+            color: #666;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+        }
+        
+        body.dark-mode .crop-close {
+            color: #fff;
+        }
+        
+        .crop-image-container {
+            max-height: 500px;
+            margin-bottom: 20px;
+            background: #f5f5f5;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        
+        body.dark-mode .crop-image-container {
+            background: #2a2820;
+        }
+        
+        #crop-image {
+            max-width: 100%;
+            display: block;
+        }
+        
+        .crop-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .crop-btn {
+            font-family: "Litebulb";
+            font-size: 28px;
+            padding: 15px 35px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .crop-btn-cancel {
+            background: #ddd;
+            color: #333;
+        }
+        
+        .crop-btn-cancel:hover {
+            background: #ccc;
+            transform: translateY(-2px);
+        }
+        
+        .crop-btn-confirm {
+            background: #ffea98;
+            color: #000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .crop-btn-confirm:hover {
+            background: #f5e08a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        body.dark-mode .crop-btn-cancel {
+            background: #555;
+            color: #fff;
+        }
+        
+        body.dark-mode .crop-btn-cancel:hover {
+            background: #666;
+        }
+        
+        body.dark-mode .crop-btn-confirm {
+            background: #423f2d;
+            color: #fff;
+        }
+        
+        body.dark-mode .crop-btn-confirm:hover {
+            background: #4a4635;
+        }
+        
+        @media (max-width: 768px) {
+            .crop-container {
+                padding: 20px;
+                width: 95%;
+            }
+            
+            .crop-title {
+                font-size: 32px;
+            }
+            
+            .crop-btn {
+                font-size: 24px;
+                padding: 12px 25px;
+            }
+            
+            .crop-image-container {
+                max-height: 400px;
+            }
+        }
+
+
+
 /* ===== CONTAINER PRINCIPAL ===== */
 .upload-container {
     max-width: 1200px;
