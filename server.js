@@ -95,7 +95,7 @@ app.get('/login', (req, res) => {
         </head>
         <body>
             <div class="login-container">
-                <div class="logo">🎨 PFPedia</div>
+                <div class="logo">PFPedia</div>
                 <h2>Entrar na sua conta</h2>
                 <p>Faça login com sua conta do Discord para acessar a PFPedia</p>
                 
@@ -107,9 +107,9 @@ app.get('/login', (req, res) => {
                 </a>
                 
                 <div style="margin-top: 30px; font-size: 14px; color: #666;">
-                    <p>📝 Não compartilhamos seus dados</p>
-                    <p>🔒 Login 100% seguro via Discord</p>
-                    <p>👤 Apenas lemos: nome, avatar e email</p>
+                    <p>Não compartilhamos seus dados</p>
+                    <p>Login 100% seguro via Discord</p>
+                    <p>Apenas lemos: nome, avatar e email</p>
                 </div>
             </div>
         </body>
@@ -165,12 +165,12 @@ app.get('/auth/discord/callback', async (req, res) => {
             loggedAt: new Date()
         };
         
-        console.log(`✅ Usuário logado: ${req.session.user.username}#${req.session.user.discriminator}`);
+        console.log(` Usuário logado: ${req.session.user.username}#${req.session.user.discriminator}`);
         
         res.redirect('/');
         
     } catch (error) {
-        console.error('❌ Erro na autenticação Discord:', error.response?.data || error.message);
+        console.error('Erro na autenticação Discord:', error.response?.data || error.message);
         res.redirect('/login?error=auth_failed');
     }
 });
